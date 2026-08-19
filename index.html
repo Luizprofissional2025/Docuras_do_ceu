@@ -210,6 +210,21 @@
   </div>
 </section>
 
+<!-- ================= INSTAGRAM PREVIEW ================= -->
+<section class="instagram-section container" id="instagramSection">
+  <div class="inst-inner">
+    <div class="inst-profile" id="instProfile">
+      <!-- preenchido por JS -->
+    </div>
+    <div class="inst-grid" id="instGrid" aria-live="polite">
+      <!-- posts preenchidos por JS -->
+    </div>
+    <div class="inst-cta">
+      <a href="https://www.instagram.com/docurasdoceu.bolosedoces/" target="_blank" rel="noopener" class="btn btn-ghost">Ver perfil no Instagram</a>
+    </div>
+  </div>
+</section>
+
 <!-- ================= FOOTER ================= -->
 <footer class="site-footer" id="contato">
   <div class="container footer-grid">
@@ -292,6 +307,28 @@
 
 <!-- ================= CONFETE (canvas de raspinhas ao adicionar) ================= -->
 <div class="sprinkle-burst" id="sprinkleBurst"></div>
+
+<!-- ================= MODAL 'MERGULHE NO SABOR' ================= -->
+<div class="flavor-modal" id="flavorModal" aria-hidden="true">
+  <div class="flavor-overlay" id="flavorOverlay"></div>
+  <div class="flavor-panel" role="dialog" aria-modal="true" aria-labelledby="flavorTitle">
+    <button class="flavor-close" id="flavorCloseBtn" aria-label="Fechar">✕</button>
+    <h3 id="flavorTitle">Mergulhe no sabor</h3>
+    <p class="flavor-sub" id="flavorSubtitle">Escolha um sabor e sinta a experiência.</p>
+    <div class="flavor-list" id="flavorList"></div>
+    <div class="flavor-preview" id="flavorPreview">
+      <div class="fp-media" id="fpMedia"></div>
+      <div class="fp-info">
+        <h4 id="fpName"></h4>
+        <p id="fpDesc"></p>
+        <div class="fp-actions">
+          <button class="btn btn-primary" id="fpAddBtn">Adicionar ao carrinho</button>
+          <button class="btn btn-ghost" id="fpCloseBtn">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script src="script.js"></script>
 </body>
