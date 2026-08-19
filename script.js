@@ -236,7 +236,7 @@
 
   function renderCarousel() {
     carouselTrack.innerHTML = FEATURED.map((p) => `
-      <div class="carousel-card">
+      <div class="carousel-card" data-id="${p.id}">
         <span class="cc-tag">${p.tag}</span>
         <div class="cc-media">${cakeSvg()}</div>
         <div class="cc-body">
@@ -244,7 +244,10 @@
           <p>${p.desc}</p>
           <div class="cc-footer">
             <span class="cc-price">${formatPrice(p.price)}</span>
-            <button class="mini-add" data-id="${p.id}" aria-label="Adicionar ao carrinho">+</button>
+            <div style="display:flex;gap:8px;align-items:center">
+              <button class="mini-add" data-id="${p.id}" aria-label="Adicionar ao carrinho">+</button>
+              <button class="dive-btn" data-id="${p.id}" aria-label="Mergulhe no sabor">Mergulhe</button>
+            </div>
           </div>
         </div>
       </div>
@@ -255,6 +258,14 @@
     });
 
     carouselDots.innerHTML = FEATURED.map((_, i) => `<span class="dot${i === 0 ? " active" : ""}"></span>`).join("");
+
+    // liga botões de mergulho (abrir modal de sabores)
+    carouselTrack.querySelectorAll(".dive-btn").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        openFlavorModal(btn.dataset.id);
+      });
+    });
   }
 
   function setupCarouselControls() {
@@ -271,6 +282,91 @@
       dots.forEach((d, i) => d.classList.toggle("active", i === idx));
     }, { passive: true });
   }
+
+  /* ---------------------------------------------------------
+     SABORES / MODAL 'MERGULHE NO SABOR'
+  --------------------------------------------------------- */
+  const FLAVORS = {
+    p1: [
+      { key: 'chocolate', name: 'Chocolate', color: '#6b3a2e', desc: 'Trufa cremosa com cacau belga, intenso e aveludado.' },
+      { key: 'morango', name: 'Morango', color: '#e76f8e', desc: 'Doce e fresco, com calda artesanal de morango.' },
+      { key: 'baunilha', name: 'Baunilha', color: '#f2e6d6', desc: 'Clássico e suave, com toque de fava de baunilha.' }
+    ],
+    p2: [
+      { key: 'ninho', name: 'Leite Ninho', color: '#f6e7c9', desc: 'Creme aveludado com leite em pó, muito cremoso.' },
+      { key: 'nutella', name: 'Nutella', color: '#65423a', desc: 'Avelã caramelizada e chocolate num recheio irresistível.' }
+    ],
+    p11: [
+      { key: 'chocolate', name: 'Chocolate', color: '#4a2b2b', desc: 'Recheio trufado, camadas intensas de cacau.' },
+      { key: 'caramelo', name: 'Caramelo', color: '#c9853a', desc: 'Doce, com leve toque salgado para equilíbrio.' }
+    ],
+  };
+
+  const flavorModal = document.getElementById('flavorModal');
+  const flavorList = document.getElementById('flavorList');
+  const flavorOverlay = document.getElementById('flavorOverlay');
+  const flavorCloseBtn = document.getElementById('flavorCloseBtn');
+  const flavorSubtitle = document.getElementById('flavorSubtitle');
+  const fpMedia = document.getElementById('fpMedia');
+  const fpName = document.getElementById('fpName');
+  const fpDesc = document.getElementById('fpDesc');
+  const fpAddBtn = document.getElementById('fpAddBtn');
+  const fpCloseBtn = document.getElementById('fpCloseBtn');
+
+  let currentModalProduct = null;
+  let currentSelectedFlavor = null;
+
+  function openFlavorModal(productId) {
+    const product = PRODUCTS.find((p) => p.id === productId);
+    currentModalProduct = product;
+    const flavors = FLAVORS[productId] || [
+      { key: 'chocolate', name: 'Chocolate', color: '#6b3a2e', desc: 'Sabor intenso e aveludado.' },
+      { key: 'morango', name: 'Morango', color: '#e76f8e', desc: 'Frescor frutado e leve.' },
+      { key: 'baunilha', name: 'Baunilha', color: '#f2e6d6', desc: 'Clássico e equilibrado.' }
+    ];
+
+    document.getElementById('flavorTitle').textContent = `Mergulhe no sabor — ${product.name}`;
+    flavorList.innerHTML = '';
+    flavors.forEach((f, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'flavor-chip' + (i === 0 ? ' active' : '');
+      btn.textContent = f.name;
+      btn.dataset.key = f.key;
+      btn.style.borderColor = 'transparent';
+      btn.addEventListener('click', () => selectFlavor(f));
+      flavorList.appendChild(btn);
+      if (i === 0) selectFlavor(f);
+    });
+
+    flavorModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeFlavorModal() {
+    flavorModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    currentModalProduct = null;
+    currentSelectedFlavor = null;
+  }
+
+  function selectFlavor(flavor) {
+    currentSelectedFlavor = flavor;
+    Array.from(flavorList.children).forEach((c) => c.classList.toggle('active', c.dataset.key === flavor.key));
+    fpMedia.style.background = `linear-gradient(160deg, ${flavor.color}, ${flavor.color}88)`;
+    fpMedia.innerHTML = '<svg viewBox="0 0 64 64" style="width:64px;height:64px;color:#fff"><use href="#ico-cake"/></svg>';
+    fpName.textContent = flavor.name;
+    fpDesc.textContent = flavor.desc;
+    fpAddBtn.onclick = () => {
+      if (currentModalProduct) addToCart(currentModalProduct.id);
+      closeFlavorModal();
+      showToast(`${currentModalProduct.name} — ${flavor.name} adicionado ao carrinho`);
+    };
+  }
+
+  flavorOverlay.addEventListener('click', closeFlavorModal);
+  flavorCloseBtn.addEventListener('click', closeFlavorModal);
+  fpCloseBtn.addEventListener('click', closeFlavorModal);
+
 
   /* ---------------------------------------------------------
      DEPOIMENTOS — slider
@@ -422,5 +518,96 @@
   startTestimonialAutoplay();
   renderPetals();
   renderCart();
+  renderInstagram();
   setupScrollReveal();
 })();
+
+/* ---------------------------------------------------------
+   INSTAGRAM — seção baseada no perfil (dados do screenshot)
+   Conteúdo estático/placeholder que pode ser substituído
+ --------------------------------------------------------- */
+function renderInstagram() {
+  const info = {
+    username: 'docurasdoceu.bolosedoces',
+    display: 'Docuras do céu | Bolos e doces',
+    bio: ['Um pedacinho do céu em cada mordida', 'Por @deborah_alvesc', 'Brás de Pina - RJ', 'Encomendas pelo WhatsApp'],
+    link: 'https://linktr.ee/Docurasdoceu.bolosedoces',
+    highlights: ['Feedbacks','Retiradas','Informações','Sobre mim'],
+    posts: [
+      { caption: 'Bolo de baunilha com morango', color: '#b81f2e' },
+      { caption: 'Ninguém resiste a um bolo de cenoura', color: '#c83a2b' },
+      { caption: 'Bolo beeem chocolatudo', color: '#5b2018' },
+      { caption: 'Não deixe para amanhã — comer hoje!', color: '#aa1f2e' },
+      { caption: 'BOLO de chocolate para você se apaixonar!', color: '#3f1a15' },
+      { caption: 'Delícias disponíveis — encomende', color: '#9c2b2b' }
+    ]
+  };
+
+  const profileEl = document.getElementById('instProfile');
+  const gridEl = document.getElementById('instGrid');
+  if (!profileEl || !gridEl) return;
+  profileEl.innerHTML = `
+    <div class="inst-avatar">${cakeSvg()}</div>
+    <div class="inst-meta">
+      <h3>${info.display}</h3>
+      <div class="handle">@${info.username}</div>
+      <div class="inst-bio">${info.bio.join(' · ')} · <a href="${info.link}" target="_blank" rel="noopener">Link</a></div>
+      <div class="inst-highlights">
+        ${info.highlights.map(h => `<div class="inst-highlight"><div class="icon">❤️</div><div>${h}</div></div>`).join('')}
+      </div>
+    </div>
+  `;
+
+  // Tenta carregar imagens locais automaticamente: assets/instagram/instagram-01.jpg ... instagram-06.jpg
+  const localBase = 'assets/instagram/';
+  const maxLocal = 8; // tentativa de até 8 imagens
+  let loaded = 0;
+  gridEl.innerHTML = '';
+
+  function appendCard(src, caption) {
+    const a = document.createElement('a');
+    a.className = 'inst-card';
+    a.href = 'https://www.instagram.com/docurasdoceu.bolosedoces/';
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.setAttribute('aria-label', caption || 'Post do Instagram');
+    a.innerHTML = `
+      <div style="position:absolute;inset:0;background-image:url('${src}');background-size:cover;background-position:center;">
+      </div>
+      <div class="ic-inner"><div class="ic-caption">${caption || ''}</div></div>
+    `;
+    gridEl.appendChild(a);
+    loaded++;
+  }
+
+  // verifica existência das imagens locais e anexa as que carregarem
+  for (let i = 1; i <= maxLocal; i++) {
+    const name = 'instagram-' + String(i).padStart(2, '0') + '.jpg';
+    const src = localBase + name;
+    const img = new Image();
+    // closures
+    img.onload = (function(s, idx) {
+      return function() { appendCard(s, info.posts[idx % info.posts.length]?.caption || ''); };
+    })(src, i - 1);
+    img.onerror = (function(i) {
+      return function() { /* falha ao carregar, ignora */ };
+    })(i);
+    // inicia tentativa de carregar
+    img.src = src;
+  }
+
+  // se nenhuma imagem local existir, usa os placeholders definidos
+  // checa após curto delay
+  setTimeout(() => {
+    if (loaded === 0) {
+      gridEl.innerHTML = info.posts.map(p => `
+        <a class="inst-card" href="https://www.instagram.com/docurasdoceu.bolosedoces/" target="_blank" rel="noopener" aria-label="${p.caption}">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg, ${p.color}, ${p.color}88);display:flex;align-items:center;justify-content:center;">
+            <div style="opacity:.12">${cakeSvg()}</div>
+          </div>
+          <div class="ic-inner"><div class="ic-caption">${p.caption}</div></div>
+        </a>
+      `).join('');
+    }
+  }, 400);
+}
