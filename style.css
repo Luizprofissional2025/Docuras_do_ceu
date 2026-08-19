@@ -352,6 +352,15 @@ h3{font-size:1.35rem;}
 }
 .mini-add:hover{ background: var(--rose-deep); color:#fff; transform: scale(1.1); }
 
+.dive-btn{
+  padding:8px 12px; border-radius:999px;
+  background: linear-gradient(90deg,var(--gold) 0%, var(--rose) 100%);
+  color:#fff; font-weight:700; font-size:.85rem;
+  border: none; cursor: pointer;
+  transition: transform .18s ease, box-shadow .18s ease, opacity .18s ease;
+}
+.dive-btn:hover{ transform: translateY(-3px); box-shadow: 0 10px 24px -12px rgba(140,60,90,.28); opacity:0.98; }
+
 .carousel-arrow{
   flex-shrink:0;
   width:44px; height:44px; border-radius:50%;
@@ -682,6 +691,31 @@ h3{font-size:1.35rem;}
 }
 
 /* =========================================================
+   MODAL 'MERGULHE NO SABOR'
+========================================================= */
+.flavor-modal{ position:fixed; inset:0; display:flex; align-items:center; justify-content:center; z-index:1000; pointer-events:none; }
+.flavor-overlay{ position:absolute; inset:0; background: rgba(28,14,18,0.6); backdrop-filter: blur(4px); opacity:0; transition: opacity .28s ease; }
+.flavor-modal[aria-hidden="false"]{ pointer-events:auto; }
+.flavor-modal[aria-hidden="false"] .flavor-overlay{ opacity:1; }
+.flavor-panel{
+  position:relative; width:min(980px, 94%); max-height:82vh; overflow:auto;
+  background: linear-gradient(180deg,#fff,#fff); border-radius:18px; box-shadow: 0 30px 70px -30px rgba(45,20,30,.45);
+  padding:24px; display:flex; flex-direction:column; gap:18px; transform: translateY(18px); transition: transform .32s cubic-bezier(.2,.8,.2,1), opacity .28s ease; opacity:0;
+}
+.flavor-modal[aria-hidden="false"] .flavor-panel{ transform: translateY(0); opacity:1; }
+.flavor-close{ position:absolute; top:12px; right:12px; background:transparent; font-size:18px; color:var(--rose-deep); width:36px; height:36px; border-radius:8px; }
+.flavor-list{ display:flex; gap:10px; flex-wrap:wrap; }
+.flavor-chip{ padding:10px 14px; border-radius:999px; background:var(--blush-soft); color:var(--rose-deep); font-weight:600; cursor:pointer; border:1px solid transparent; transition: transform .18s ease, background .18s ease; }
+.flavor-chip:hover{ transform: translateY(-4px); }
+.flavor-chip.active{ background: linear-gradient(90deg,var(--rose) 0%, var(--rose-deep) 100%); color:#fff; border-color:transparent; }
+.flavor-preview{ display:flex; gap:18px; align-items:center; margin-top:6px; }
+.fp-media{ width:120px; height:120px; border-radius:14px; background: linear-gradient(160deg,var(--blush-soft),var(--blush)); display:flex; align-items:center; justify-content:center; color:var(--rose); font-size:56px; }
+.fp-info h4{ margin:0 0 6px 0; font-family:var(--font-display); color:var(--rose-dark); }
+.fp-info p{ color:var(--ink-soft); margin:0 0 12px 0; }
+.fp-actions{ display:flex; gap:10px; }
+
+
+/* =========================================================
    RESPONSIVE
 ========================================================= */
 @media (max-width: 980px){
@@ -723,4 +757,32 @@ h3{font-size:1.35rem;}
   .carousel-card{ flex-basis: 220px; }
   .hero-cta{ flex-direction:column; width:100%; }
   .hero-cta .btn{ width:100%; }
+}
+
+/* =========================================================
+   INSTAGRAM PREVIEW
+========================================================= */
+.instagram-section{ padding: 56px 24px; }
+.instagram-section .inst-inner{ display:flex; flex-direction:column; gap:18px; align-items:center; }
+.inst-profile{ display:flex; gap:18px; align-items:center; width:100%; max-width:1180px; }
+.inst-avatar{ width:92px; height:92px; border-radius:50%; background:#fff; display:flex; align-items:center; justify-content:center; box-shadow: var(--shadow-card); }
+.inst-meta{ display:flex; flex-direction:column; gap:6px; }
+.inst-meta h3{ margin:0; font-size:1.25rem; color:var(--rose-dark); }
+.inst-meta .handle{ color:var(--ink-soft); font-weight:600; }
+.inst-bio{ color:var(--ink-soft); font-size:.95rem; max-width:720px; }
+.inst-highlights{ display:flex; gap:12px; margin-top:8px; }
+.inst-highlight{ display:flex; flex-direction:column; align-items:center; gap:6px; font-size:.78rem; color:var(--rose-deep); }
+.inst-highlight .icon{ width:56px; height:56px; border-radius:50%; background:linear-gradient(180deg,var(--blush-soft),#fff); display:flex; align-items:center; justify-content:center; box-shadow:0 8px 20px -12px rgba(140,60,90,.25); }
+.inst-grid{ display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; width:100%; max-width:1180px; }
+.inst-card{ position:relative; padding-top:100%; overflow:hidden; border-radius:12px; background:#eee; display:block; text-decoration:none; color:inherit; }
+.inst-card .ic-inner{ position:absolute; inset:0; display:flex; align-items:flex-end; padding:12px; background:linear-gradient(0deg, rgba(0,0,0,.36), rgba(0,0,0,0)); }
+.ic-caption{ color:#fff; font-weight:700; font-family:var(--font-display); font-size:.95rem; text-shadow:0 6px 18px rgba(0,0,0,.45); }
+.inst-cta{ margin-top:8px; }
+
+@media (max-width: 980px){
+  .inst-grid{ grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 640px){
+  .inst-grid{ grid-template-columns: repeat(2, 1fr); }
+  .inst-profile{ flex-direction:column; align-items:center; text-align:center; }
 }
