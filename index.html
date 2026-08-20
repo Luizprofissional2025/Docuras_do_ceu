@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doçuras do céu — Bolos e Doces Artesanais</title>
+<meta name="description" content="Um pedacinho do céu em cada mordida ☁️ Bolos caseiros feitos com amor em Brás de Pina - RJ. Peça o seu pelo WhatsApp ou Instagram.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================= DECOR SVG SPRITES (uso interno via <use>) ================= -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="ico-cake" viewBox="0 0 64 64">
+      <path d="M10 40h44v14a4 4 0 0 1-4 4H14a4 4 0 0 1-4-4V40Z" fill="currentColor" opacity=".9"/>
+      <path d="M8 30a6 6 0 0 1 6-6h36a6 6 0 0 1 6 6v10H8V30Z" fill="currentColor"/>
+      <rect x="30" y="8" width="4" height="12" rx="2" fill="currentColor"/>
+      <circle cx="32" cy="6" r="3" fill="currentColor"/>
+    </symbol>
+    <symbol id="ico-cart" viewBox="0 0 24 24">
+      <path d="M2.5 3h2l.9 2M6 15h11l3-8H5.4M6 15L4.4 5H2.5M6 15l-1.3 2.6A1 1 0 0 0 5.6 19H18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="9" cy="21" r="1.4" fill="currentColor"/>
+      <circle cx="17" cy="21" r="1.4" fill="currentColor"/>
+    </symbol>
+    <symbol id="ico-whatsapp" viewBox="0 0 32 32">
+      <path fill="currentColor" d="M16.01 2.7C8.68 2.7 2.73 8.63 2.72 15.94c0 2.5.67 4.83 1.83 6.85L2.6 29.3l6.68-1.9a13.3 13.3 0 0 0 6.72 1.83h.01c7.32 0 13.28-5.93 13.28-13.24 0-3.54-1.38-6.86-3.9-9.36a13.2 13.2 0 0 0-9.38-3.93Zm0 24.2h-.01a11 11 0 0 1-5.6-1.54l-.4-.24-3.96 1.13 1.06-3.87-.26-.4a10.98 10.98 0 0 1-1.7-5.87c0-6.06 4.94-10.99 11.02-10.99a10.94 10.94 0 0 1 7.79 3.24 10.87 10.87 0 0 1 3.22 7.76c0 6.06-4.95 10.98-11.16 10.98Zm6.03-8.23c-.33-.17-1.96-.97-2.26-1.08-.3-.11-.53-.17-.75.17-.22.33-.86 1.08-1.05 1.3-.19.22-.39.25-.72.08-.33-.17-1.4-.52-2.66-1.65-.98-.88-1.65-1.96-1.84-2.29-.19-.33-.02-.5.15-.67.15-.15.33-.4.5-.6.16-.2.22-.33.33-.55.11-.22.06-.42-.03-.58-.08-.17-.75-1.8-1.02-2.47-.27-.65-.55-.56-.75-.57l-.64-.01c-.22 0-.58.08-.88.42-.3.33-1.16 1.13-1.16 2.76 0 1.63 1.19 3.2 1.35 3.43.17.22 2.34 3.57 5.66 5.01.79.34 1.41.55 1.89.7.79.25 1.51.21 2.08.13.63-.1 1.96-.8 2.24-1.58.28-.77.28-1.44.2-1.58-.08-.14-.3-.22-.63-.39Z"/>
+    </symbol>
+    <symbol id="ico-sprinkle" viewBox="0 0 20 20">
+      <rect x="8" y="0" width="4" height="20" rx="2" fill="currentColor"/>
+    </symbol>
+    <symbol id="ico-flourish" viewBox="0 0 200 24">
+      <path d="M0 12c20-14 30 14 50 0s30-14 50 0 30 14 50 0 30-14 50 0" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      <circle cx="100" cy="12" r="3.5" fill="currentColor"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner container">
+    <a href="#top" class="brand">
+      <svg class="brand-icon" width="30" height="30"><use href="#ico-cake"/></svg>
+      <span class="brand-name">Doçuras do céu</span>
+    </a>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="#cardapio">Cardápio</a>
+      <a href="#mais-pedidos">Mais Pedidos</a>
+      <a href="#como-funciona">Como Funciona</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn cart-btn" id="cartOpenBtn" aria-label="Abrir carrinho">
+        <svg width="22" height="22"><use href="#ico-cart"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div id="top"></div>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="hero-petals" aria-hidden="true"></div>
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <p class="eyebrow">Um pedacinho do céu em cada mordida ☁️</p>
+      <h1>Bolos que
+        <span class="script">adoçam</span>
+        cada momento especial da sua vida</h1>
+      <p class="hero-desc">Bolos caseiros feitos com carinho, cobertura de granulado gourmet e aquele toque de amor em cada fatia. Feito por Deborah, em Brás de Pina — RJ.</p>
+      <div class="hero-cta">
+        <a href="#cardapio" class="btn btn-primary">Ver cardápio</a>
+        <a href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20fazer%20um%20pedido%20de%20bolo." target="_blank" rel="noopener" class="btn btn-ghost">
+          <svg width="18" height="18"><use href="#ico-whatsapp"/></svg>
+          Fazer pedido
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>6</strong><span>sabores autorais</span></div>
+        <div><strong>100%</strong><span>artesanal e caseiro</span></div>
+        <div><strong>☁️</strong><span>feito com amor</span></div>
+      </div>
+    </div>
+
+    <div class="hero-art">
+      <div class="hero-cake-card">
+        <svg viewBox="0 0 220 220" class="hero-cake-illustration">
+          <ellipse cx="110" cy="196" rx="78" ry="10" fill="#000" opacity=".06"/>
+          <rect x="46" y="140" width="128" height="48" rx="10" fill="#F6C9D6"/>
+          <rect x="46" y="140" width="128" height="14" rx="7" fill="#F1AFC4"/>
+          <rect x="60" y="92" width="100" height="48" rx="10" fill="#FBE1E9"/>
+          <rect x="60" y="92" width="100" height="14" rx="7" fill="#F6C9D6"/>
+          <rect x="76" y="48" width="68" height="44" rx="10" fill="#FFF3E9"/>
+          <rect x="76" y="48" width="68" height="14" rx="7" fill="#FBE1E9"/>
+          <path d="M60 92c6-6 10-10 6-18-3-6 2-10 6-8" stroke="#D9A441" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <circle cx="86" cy="42" r="4" fill="#D9A441"/>
+          <circle cx="134" cy="40" r="3" fill="#C46A80"/>
+          <circle cx="110" cy="46" r="3" fill="#C46A80"/>
+          <rect x="106" y="20" width="3" height="20" fill="#D9A441"/>
+          <path d="M107.5 20c-6-4-2-10 0-14 2 4 6 10 0 14Z" fill="#F2B84B"/>
+          <g fill="#C46A80" opacity=".8">
+            <circle cx="72" cy="112" r="2.4"/><circle cx="150" cy="118" r="2.4"/>
+            <circle cx="90" cy="160" r="2.4"/><circle cx="150" cy="164" r="2.4"/>
+            <circle cx="120" cy="112" r="2.4"/><circle cx="60" cy="160" r="2.4"/>
+          </g>
+        </svg>
+        <span class="hero-badge">Feito hoje 🌸</span>
+      </div>
+    </div>
+  </div>
+  <svg class="section-flourish" width="200" height="24"><use href="#ico-flourish"/></svg>
+</section>
+
+<!-- ================= CATEGORIAS ================= -->
+<section class="categories container">
+  <button class="cat-pill active" data-filter="todos">Todos</button>
+  <button class="cat-pill" data-filter="classicos">Clássicos</button>
+  <button class="cat-pill" data-filter="chocolate">Chocolate</button>
+  <button class="cat-pill" data-filter="especiais">Especiais</button>
+</section>
+
+<!-- ================= VITRINE ANIMADA DE BOLOS ================= -->
+<section class="cake-slider" id="mais-pedidos" data-theme="classicos">
+  <div class="container section-head">
+    <p class="eyebrow">Os favoritos da casa</p>
+    <h2>Escolha seu bolo favorito</h2>
+  </div>
+
+  <div class="container">
+    <div class="slider-stage" id="sliderStage">
+      <div class="slider-decor" id="sliderDecor" aria-hidden="true"></div>
+
+      <button class="slider-arrow prev" id="sliderPrev" aria-label="Bolo anterior">‹</button>
+
+      <div class="slider-photo-wrap">
+        <span class="slider-index" id="sliderIndex">01</span>
+        <div class="slider-photo" id="sliderPhoto"></div>
+      </div>
+
+      <div class="slider-info" id="sliderInfo">
+        <span class="slider-cat" id="sliderCat">Clássicos</span>
+        <h3 id="sliderName">—</h3>
+        <p id="sliderDesc">—</p>
+        <div class="slider-footer">
+          <span class="slider-price" id="sliderPrice">R$ 0,00</span>
+          <button class="btn btn-primary" id="sliderAddBtn">Adicionar ao carrinho</button>
+        </div>
+      </div>
+
+      <button class="slider-arrow next" id="sliderNext" aria-label="Próximo bolo">›</button>
+    </div>
+
+    <div class="slider-thumbs" id="sliderThumbs"></div>
+  </div>
+</section>
+
+<!-- ================= CARDÁPIO / GRID ================= -->
+<section class="cardapio container" id="cardapio">
+  <div class="section-head">
+    <p class="eyebrow">Nosso cardápio</p>
+    <h2>Escolha o bolo perfeito</h2>
+  </div>
+  <div class="product-grid" id="productGrid"></div>
+</section>
+
+<!-- ================= COMO FUNCIONA ================= -->
+<section class="como-funciona" id="como-funciona">
+  <div class="container">
+    <div class="section-head light">
+      <p class="eyebrow">Simples assim</p>
+      <h2>Do pedido à mesa em 3 passos</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <span class="step-num">01</span>
+        <h3>Escolha e personalize</h3>
+        <p>Selecione o bolo, o tamanho, o recheio e adicione uma mensagem especial.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">02</span>
+        <h3>Confirme pelo WhatsApp</h3>
+        <p>Envie seu pedido com um clique e combine data, horário e forma de pagamento.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">03</span>
+        <h3>Receba fresquinho</h3>
+        <p>Retire no ateliê ou receba em casa, sempre feito no dia da entrega.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DEPOIMENTOS ================= -->
+<section class="depoimentos container" id="depoimentos">
+  <div class="section-head">
+    <p class="eyebrow">Quem já provou</p>
+    <h2>Palavras que adoçam o dia</h2>
+  </div>
+  <div class="testimonial-slider" id="testimonialSlider">
+    <div class="testimonial-track" id="testimonialTrack"></div>
+  </div>
+  <div class="carousel-dots" id="testimonialDots"></div>
+</section>
+
+<!-- ================= CTA PERSONALIZADO ================= -->
+<section class="cta-banner">
+  <div class="container cta-inner">
+    <div>
+      <p class="eyebrow light">Ocasião especial?</p>
+      <h2>Vamos criar um bolo só seu</h2>
+      <p class="cta-desc">Aniversários, encontros em família ou só uma vontade de doce — conte sua ideia e a gente transforma em bolo.</p>
+    </div>
+    <a href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20personalizado." target="_blank" rel="noopener" class="btn btn-primary btn-lg">
+      <svg width="20" height="20"><use href="#ico-whatsapp"/></svg>
+      Falar no WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer" id="contato">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="#top" class="brand">
+        <svg class="brand-icon" width="28" height="28"><use href="#ico-cake"/></svg>
+        <span class="brand-name">Doçuras do céu</span>
+      </a>
+      <p>Bolos caseiros feitos com carinho em Brás de Pina — RJ. Um pedacinho do céu em cada mordida.</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/docurasdoceu.bolosedoces/" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Navegação</h4>
+      <a href="#cardapio">Cardápio</a>
+      <a href="#mais-pedidos">Mais pedidos</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#depoimentos">Depoimentos</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Atendimento</h4>
+      <a href="https://wa.me/5511999999999" target="_blank" rel="noopener">Encomendas pelo WhatsApp</a>
+      <a href="https://www.instagram.com/docurasdoceu.bolosedoces/" target="_blank" rel="noopener">@docurasdoceu.bolosedoces</a>
+      <span>Brás de Pina — RJ</span>
+    </div>
+
+    <div class="footer-col newsletter">
+      <h4>Receba novidades e cupons</h4>
+      <form id="newsletterForm" class="newsletter-form">
+        <input type="email" placeholder="seu@email.com" required aria-label="Seu e-mail">
+        <button type="submit">Assinar</button>
+      </form>
+      <p class="newsletter-msg" id="newsletterMsg"></p>
+    </div>
+  </div>
+
+  <div class="footer-bottom container">
+    <span>© <span id="year"></span> Doçuras do céu — Bolos e Doces. Todos os direitos reservados.</span>
+    <span class="payments">Pagamento combinado direto no pedido pelo WhatsApp</span>
+  </div>
+</footer>
+
+<!-- ================= BOTÃO FLUTUANTE WHATSAPP ================= -->
+<a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20Do%C3%A7uras%20do%20c%C3%A9u!%20Vim%20pelo%20site%20e%20queria%20fazer%20um%20pedido." target="_blank" rel="noopener" class="whatsapp-float" id="whatsappFloat" aria-label="Falar no WhatsApp">
+  <svg width="30" height="30"><use href="#ico-whatsapp"/></svg>
+  <span class="whatsapp-pulse"></span>
+</a>
+
+<!-- ================= CARRINHO (DRAWER) ================= -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="Carrinho de compras">
+  <div class="cart-header">
+    <h3>Seu carrinho</h3>
+    <button class="icon-btn" id="cartCloseBtn" aria-label="Fechar carrinho">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <p class="cart-empty" id="cartEmptyMsg">Seu carrinho está vazio. Que tal adicionar um docinho? 🌸</p>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total-row">
+      <span>Total</span>
+      <strong id="cartTotal">R$ 0,00</strong>
+    </div>
+    <button class="btn btn-primary btn-block" id="checkoutBtn">
+      <svg width="18" height="18"><use href="#ico-whatsapp"/></svg>
+      Finalizar pedido no WhatsApp
+    </button>
+    <p class="cart-note">Você será redirecionado ao WhatsApp com seu pedido pronto para confirmar.</p>
+  </div>
+</aside>
+
+<!-- ================= TOAST ================= -->
+<div class="toast" id="toast"></div>
+
+<!-- ================= CONFETE (canvas de raspinhas ao adicionar) ================= -->
+<div class="sprinkle-burst" id="sprinkleBurst"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
