@@ -129,18 +129,6 @@ h3{font-size:1.35rem;}
 }
 .brand{ display:flex; align-items:center; gap:10px; }
 .brand-icon{ color: var(--rose); }
-.brand-icon-img{
-  width: 44px; height: 44px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #fff;
-  box-shadow: 0 3px 12px -3px rgba(140,60,90,.4);
-  flex-shrink: 0;
-}
-.footer-brand .brand-icon-img.footer-logo{
-  width: 40px; height: 40px;
-  border-color: rgba(255,255,255,.5);
-}
 .brand-name{
   font-family: var(--font-display);
   font-size: 1.5rem;
@@ -380,7 +368,6 @@ h3{font-size:1.35rem;}
   z-index:2;
 }
 .slider-photo{
-  position:relative;
   width: min(74vw, 320px);
   height: min(74vw, 320px);
   border-radius:50%;
@@ -389,7 +376,7 @@ h3{font-size:1.35rem;}
   background: linear-gradient(160deg, var(--blush-soft), var(--blush));
   display:flex; align-items:center; justify-content:center;
 }
-.slider-photo img{ width:100%; height:100%; object-fit:cover; object-position:50% 78%; }
+.slider-photo img{ width:100%; height:100%; object-fit:cover; }
 .slider-photo .media-fallback{ width:100%; height:100%; align-items:center; justify-content:center; display:flex; }
 .slider-photo .media-fallback svg{ width:40%; height:40%; color: var(--rose); }
 
@@ -406,75 +393,6 @@ h3{font-size:1.35rem;}
 }
 @keyframes photoOutRight{
   to{ opacity:0; transform: scale(.85) rotate(-8deg) translateX(30px); filter: blur(8px); }
-}
-
-/* ---------------------------------------------------------
-   COBERTURA ANIMADA — cada bolo "ganha" sua calda ao entrar:
-   morango escorre rosa, chocolate escorre escuro e brilhante,
-   paçoca escorre e "chove" farofa, coco "neva" flocos brancos...
---------------------------------------------------------- */
-.slider-topping{
-  position:absolute; inset:0;
-  border-radius:50%;
-  overflow:hidden;
-  pointer-events:none;
-  z-index:2;
-}
-
-/* a calda: um "sobe e desce" de SVG com borda irregular, escondida
-   acima do bolo e que escorre pra baixo quando a foto entra */
-.drip-shape{
-  position:absolute;
-  top:-2px; left:-2px;
-  width: calc(100% + 4px);
-  height: 58%;
-  transform: translateY(-108%);
-  filter: drop-shadow(0 6px 5px rgba(0,0,0,.16));
-}
-.slider-photo.in .drip-shape{
-  animation: dripDown .95s cubic-bezier(.3,1.2,.4,1) .32s both;
-}
-@keyframes dripDown{
-  0%{ transform: translateY(-108%); }
-  60%{ transform: translateY(6%); }
-  100%{ transform: translateY(0); }
-}
-
-/* brilho: um reflexo que passa por cima da calda (ganache/brigadeiro) */
-.topping-shine-sweep{
-  position:absolute;
-  top:0; left:-60%;
-  width:32%; height:100%;
-  background: linear-gradient(115deg, transparent, rgba(255,255,255,.5), transparent);
-  opacity:0;
-  mix-blend-mode: soft-light;
-}
-.slider-photo.in .topping-shine .topping-shine-sweep{
-  animation: shineSweep 1.25s ease 1.05s both;
-}
-@keyframes shineSweep{
-  0%{ left:-60%; opacity:0; }
-  15%{ opacity:1; }
-  85%{ opacity:1; }
-  100%{ left:120%; opacity:0; }
-}
-
-/* granulado / farofa de paçoca / flocos de coco caindo sobre o bolo */
-.topping-particles{ position:absolute; inset:0; overflow:hidden; }
-.topping-particle{
-  position:absolute;
-  top:-14%;
-  border-radius:2px;
-  opacity:0;
-  animation: particleFall linear infinite;
-}
-.topping-particle.shape-flake{ border-radius:50%; box-shadow: 0 0 2px rgba(0,0,0,.08); }
-.topping-particle.shape-crumb{ border-radius:1px; }
-@keyframes particleFall{
-  0%{ transform: translateY(0) rotate(0deg); opacity:0; }
-  8%{ opacity:1; }
-  90%{ opacity:1; }
-  100%{ transform: translateY(340px) rotate(210deg); opacity:0; }
 }
 
 .slider-info{
@@ -524,7 +442,7 @@ h3{font-size:1.35rem;}
   transition: opacity .25s ease, border-color .25s ease, transform .25s ease;
   background: var(--blush-soft);
 }
-.slider-thumb img{ width:100%; height:100%; object-fit:cover; object-position:50% 78%; }
+.slider-thumb img{ width:100%; height:100%; object-fit:cover; }
 .slider-thumb:hover{ opacity:.85; transform: translateY(-2px); }
 .slider-thumb.active{ opacity:1; border-color: var(--rose-deep); transform: scale(1.08); }
 
@@ -579,7 +497,7 @@ h3{font-size:1.35rem;}
 }
 .pc-media svg{ width:88px; height:88px; color: var(--rose); transition: transform .4s ease; }
 .product-card:hover .pc-media svg{ transform: scale(1.08) rotate(-3deg); }
-.pc-media img{ width:100%; height:100%; object-fit:cover; object-position:50% 78%; transition: transform .4s ease; }
+.pc-media img{ width:100%; height:100%; object-fit:cover; transition: transform .4s ease; }
 .product-card:hover .pc-media img{ transform: scale(1.05); }
 .pc-media .media-fallback{ width:100%; height:100%; align-items:center; justify-content:center; }
 .pc-cat{
