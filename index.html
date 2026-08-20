@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Flor de Açúcar — Ateliê de Bolos Artesanais</title>
-<meta name="description" content="Bolos artesanais feitos à mão para aniversários, casamentos e ocasiões especiais. Peça o seu pelo site ou WhatsApp.">
+<title>Doçuras do céu — Bolos e Doces Artesanais</title>
+<meta name="description" content="Um pedacinho do céu em cada mordida ☁️ Bolos caseiros feitos com amor em Brás de Pina - RJ. Peça o seu pelo WhatsApp ou Instagram.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="images/logo.png">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -43,8 +44,9 @@
 <header class="site-header" id="siteHeader">
   <div class="header-inner container">
     <a href="#top" class="brand">
-      <svg class="brand-icon" width="30" height="30"><use href="#ico-cake"/></svg>
-      <span class="brand-name">Flor de Açúcar</span>
+      <img src="images/logo.png" alt="Doçuras do céu" class="brand-icon-img"
+        onerror="this.outerHTML='&lt;svg class=&quot;brand-icon&quot; width=&quot;30&quot; height=&quot;30&quot;&gt;&lt;use href=&quot;#ico-cake&quot;/&gt;&lt;/svg&gt;';">
+      <span class="brand-name">Doçuras do céu</span>
     </a>
 
     <nav class="main-nav" id="mainNav">
@@ -74,22 +76,22 @@
   <div class="hero-petals" aria-hidden="true"></div>
   <div class="container hero-inner">
     <div class="hero-text">
-      <p class="eyebrow">Feito à mão, camada por camada</p>
+      <p class="eyebrow">Um pedacinho do céu em cada mordida ☁️</p>
       <h1>Bolos que
-        <span class="script">celebram</span>
-        cada momento doce da sua vida</h1>
-      <p class="hero-desc">Receitas autorais, recheios artesanais e decoração feita à mão. Do aniversário íntimo ao grande casamento — seu bolo, do seu jeito.</p>
+        <span class="script">adoçam</span>
+        cada momento especial da sua vida</h1>
+      <p class="hero-desc">Bolos caseiros feitos com carinho, cobertura de granulado gourmet e aquele toque de amor em cada fatia. Feito por Deborah, em Brás de Pina — RJ.</p>
       <div class="hero-cta">
         <a href="#cardapio" class="btn btn-primary">Ver cardápio</a>
-        <a href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Quero%20fazer%20um%20pedido%20personalizado%20de%20bolo." target="_blank" rel="noopener" class="btn btn-ghost">
+        <a href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20fazer%20um%20pedido%20de%20bolo." target="_blank" rel="noopener" class="btn btn-ghost">
           <svg width="18" height="18"><use href="#ico-whatsapp"/></svg>
-          Pedido personalizado
+          Fazer pedido
         </a>
       </div>
       <div class="hero-stats">
-        <div><strong>7 anos</strong><span>de ateliê</span></div>
-        <div><strong>+1.200</strong><span>bolos entregues</span></div>
-        <div><strong>4,9★</strong><span>avaliação média</span></div>
+        <div><strong>6</strong><span>sabores autorais</span></div>
+        <div><strong>100%</strong><span>artesanal e caseiro</span></div>
+        <div><strong>☁️</strong><span>feito com amor</span></div>
       </div>
     </div>
 
@@ -125,26 +127,44 @@
 <!-- ================= CATEGORIAS ================= -->
 <section class="categories container">
   <button class="cat-pill active" data-filter="todos">Todos</button>
-  <button class="cat-pill" data-filter="aniversario">Aniversário</button>
-  <button class="cat-pill" data-filter="casamento">Casamento</button>
-  <button class="cat-pill" data-filter="cupcakes">Cupcakes</button>
-  <button class="cat-pill" data-filter="temáticos">Temáticos</button>
-  <button class="cat-pill" data-filter="veganos">Veganos</button>
+  <button class="cat-pill" data-filter="classicos">Clássicos</button>
+  <button class="cat-pill" data-filter="chocolate">Chocolate</button>
+  <button class="cat-pill" data-filter="especiais">Especiais</button>
 </section>
 
-<!-- ================= CARROSSEL MAIS PEDIDOS ================= -->
-<section class="mais-pedidos" id="mais-pedidos">
+<!-- ================= VITRINE ANIMADA DE BOLOS ================= -->
+<section class="cake-slider" id="mais-pedidos" data-theme="classicos">
   <div class="container section-head">
     <p class="eyebrow">Os favoritos da casa</p>
-    <h2>Mais pedidos da semana</h2>
+    <h2>Escolha seu bolo favorito</h2>
   </div>
 
-  <div class="carousel" id="carousel">
-    <button class="carousel-arrow prev" id="prevBtn" aria-label="Anterior">‹</button>
-    <div class="carousel-track" id="carouselTrack"></div>
-    <button class="carousel-arrow next" id="nextBtn" aria-label="Próximo">›</button>
+  <div class="container">
+    <div class="slider-stage" id="sliderStage">
+      <div class="slider-decor" id="sliderDecor" aria-hidden="true"></div>
+
+      <button class="slider-arrow prev" id="sliderPrev" aria-label="Bolo anterior">‹</button>
+
+      <div class="slider-photo-wrap">
+        <span class="slider-index" id="sliderIndex">01</span>
+        <div class="slider-photo" id="sliderPhoto"></div>
+      </div>
+
+      <div class="slider-info" id="sliderInfo">
+        <span class="slider-cat" id="sliderCat">Clássicos</span>
+        <h3 id="sliderName">—</h3>
+        <p id="sliderDesc">—</p>
+        <div class="slider-footer">
+          <span class="slider-price" id="sliderPrice">R$ 0,00</span>
+          <button class="btn btn-primary" id="sliderAddBtn">Adicionar ao carrinho</button>
+        </div>
+      </div>
+
+      <button class="slider-arrow next" id="sliderNext" aria-label="Próximo bolo">›</button>
+    </div>
+
+    <div class="slider-thumbs" id="sliderThumbs"></div>
   </div>
-  <div class="carousel-dots" id="carouselDots"></div>
 </section>
 
 <!-- ================= CARDÁPIO / GRID ================= -->
@@ -201,7 +221,7 @@
     <div>
       <p class="eyebrow light">Ocasião especial?</p>
       <h2>Vamos criar um bolo só seu</h2>
-      <p class="cta-desc">Casamentos, aniversários de 15 anos, chás revelação — conte sua ideia e transformamos em bolo.</p>
+      <p class="cta-desc">Aniversários, encontros em família ou só uma vontade de doce — conte sua ideia e a gente transforma em bolo.</p>
     </div>
     <a href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20personalizado." target="_blank" rel="noopener" class="btn btn-primary btn-lg">
       <svg width="20" height="20"><use href="#ico-whatsapp"/></svg>
@@ -210,34 +230,18 @@
   </div>
 </section>
 
-<!-- ================= INSTAGRAM PREVIEW ================= -->
-<section class="instagram-section container" id="instagramSection">
-  <div class="inst-inner">
-    <div class="inst-profile" id="instProfile">
-      <!-- preenchido por JS -->
-    </div>
-    <div class="inst-grid" id="instGrid" aria-live="polite">
-      <!-- posts preenchidos por JS -->
-    </div>
-    <div class="inst-cta">
-      <a href="https://www.instagram.com/docurasdoceu.bolosedoces/" target="_blank" rel="noopener" class="btn btn-ghost">Ver perfil no Instagram</a>
-    </div>
-  </div>
-</section>
-
 <!-- ================= FOOTER ================= -->
 <footer class="site-footer" id="contato">
   <div class="container footer-grid">
     <div class="footer-brand">
       <a href="#top" class="brand">
-        <svg class="brand-icon" width="28" height="28"><use href="#ico-cake"/></svg>
-        <span class="brand-name">Flor de Açúcar</span>
+        <img src="images/logo.png" alt="Doçuras do céu" class="brand-icon-img footer-logo"
+          onerror="this.outerHTML='&lt;svg class=&quot;brand-icon&quot; width=&quot;28&quot; height=&quot;28&quot;&gt;&lt;use href=&quot;#ico-cake&quot;/&gt;&lt;/svg&gt;';">
+        <span class="brand-name">Doçuras do céu</span>
       </a>
-      <p>Ateliê artesanal de bolos, feito com ingredientes selecionados e muito carinho desde 2018.</p>
+      <p>Bolos caseiros feitos com carinho em Brás de Pina — RJ. Um pedacinho do céu em cada mordida.</p>
       <div class="footer-social">
-        <a href="#" aria-label="Instagram">IG</a>
-        <a href="#" aria-label="Facebook">FB</a>
-        <a href="#" aria-label="TikTok">TT</a>
+        <a href="https://www.instagram.com/docurasdoceu.bolosedoces/" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
       </div>
     </div>
 
@@ -251,10 +255,9 @@
 
     <div class="footer-col">
       <h4>Atendimento</h4>
-      <a href="tel:+5511999999999">(11) 99999-9999</a>
-      <a href="mailto:contato@flordeacucar.com.br">contato@flordeacucar.com.br</a>
-      <span>Ter–Sáb · 9h às 18h</span>
-      <span>Rua das Cerejeiras, 123 — São Paulo/SP</span>
+      <a href="https://wa.me/5511999999999" target="_blank" rel="noopener">Encomendas pelo WhatsApp</a>
+      <a href="https://www.instagram.com/docurasdoceu.bolosedoces/" target="_blank" rel="noopener">@docurasdoceu.bolosedoces</a>
+      <span>Brás de Pina — RJ</span>
     </div>
 
     <div class="footer-col newsletter">
@@ -268,13 +271,13 @@
   </div>
 
   <div class="footer-bottom container">
-    <span>© <span id="year"></span> Flor de Açúcar Ateliê de Bolos. Todos os direitos reservados.</span>
-    <span class="payments">Aceitamos Pix · Cartão · Dinheiro</span>
+    <span>© <span id="year"></span> Doçuras do céu — Bolos e Doces. Todos os direitos reservados.</span>
+    <span class="payments">Pagamento combinado direto no pedido pelo WhatsApp</span>
   </div>
 </footer>
 
 <!-- ================= BOTÃO FLUTUANTE WHATSAPP ================= -->
-<a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20Flor%20de%20A%C3%A7%C3%BAcar!%20Vim%20pelo%20site%20e%20queria%20fazer%20um%20pedido." target="_blank" rel="noopener" class="whatsapp-float" id="whatsappFloat" aria-label="Falar no WhatsApp">
+<a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20Do%C3%A7uras%20do%20c%C3%A9u!%20Vim%20pelo%20site%20e%20queria%20fazer%20um%20pedido." target="_blank" rel="noopener" class="whatsapp-float" id="whatsappFloat" aria-label="Falar no WhatsApp">
   <svg width="30" height="30"><use href="#ico-whatsapp"/></svg>
   <span class="whatsapp-pulse"></span>
 </a>
@@ -307,28 +310,6 @@
 
 <!-- ================= CONFETE (canvas de raspinhas ao adicionar) ================= -->
 <div class="sprinkle-burst" id="sprinkleBurst"></div>
-
-<!-- ================= MODAL 'MERGULHE NO SABOR' ================= -->
-<div class="flavor-modal" id="flavorModal" aria-hidden="true">
-  <div class="flavor-overlay" id="flavorOverlay"></div>
-  <div class="flavor-panel" role="dialog" aria-modal="true" aria-labelledby="flavorTitle">
-    <button class="flavor-close" id="flavorCloseBtn" aria-label="Fechar">✕</button>
-    <h3 id="flavorTitle">Mergulhe no sabor</h3>
-    <p class="flavor-sub" id="flavorSubtitle">Escolha um sabor e sinta a experiência.</p>
-    <div class="flavor-list" id="flavorList"></div>
-    <div class="flavor-preview" id="flavorPreview">
-      <div class="fp-media" id="fpMedia"></div>
-      <div class="fp-info">
-        <h4 id="fpName"></h4>
-        <p id="fpDesc"></p>
-        <div class="fp-actions">
-          <button class="btn btn-primary" id="fpAddBtn">Adicionar ao carrinho</button>
-          <button class="btn btn-ghost" id="fpCloseBtn">Fechar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
 <script src="script.js"></script>
 </body>
