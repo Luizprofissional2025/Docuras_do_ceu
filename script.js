@@ -1,35 +1,85 @@
 /* =========================================================
-   FLOR DE AÇÚCAR — script.js
+   DOÇURAS DO CÉU — script.js
+   Bolos e doces caseiros | Brás de Pina - RJ
+   Instagram: @docurasdoceu.bolosedoces
 ========================================================= */
 (function () {
   "use strict";
 
-  const WHATSAPP_NUMBER = "5511999999999"; // TODO: troque pelo número real (DDI+DDD+número, só dígitos)
+  // TODO: o número de WhatsApp real não aparecia no print da bio do Instagram.
+  // Troque pelo número real da Doçuras do céu (DDI+DDD+número, só dígitos, ex: "5521987654321")
+  const WHATSAPP_NUMBER = "5511999999999";
 
   /* ---------------------------------------------------------
-     DADOS DOS PRODUTOS
-     (troque livremente: nome, categoria, preço, descrição)
+     DADOS DOS PRODUTOS — os 6 bolos reais do Instagram
+     @docurasdoceu.bolosedoces
+
+     img: caminho da foto do bolo. Salve as fotos reais (exportadas
+     do Instagram, sem a moldura do navegador) numa pasta "images/"
+     ao lado deste arquivo, usando esses mesmos nomes de arquivo.
+     Se a imagem não existir, o card usa um ícone de bolo como
+     substituto automático — o site não quebra.
+
+     price: TODO — os preços não apareciam nas legendas do Instagram.
+     Troque pelos valores reais de cada bolo.
   --------------------------------------------------------- */
   const PRODUCTS = [
-    { id: "p1", name: "Red Velvet Clássico", cat: "aniversario", price: 129.9, desc: "Massa aveludada com cream cheese e toque de baunilha.", tag: "Best seller" },
-    { id: "p2", name: "Ninho com Nutella", cat: "aniversario", price: 139.9, desc: "Leite ninho cremoso recheado com nutella artesanal." },
-    { id: "p3", name: "Naked Cake Frutas Vermelhas", cat: "casamento", price: 219.9, desc: "Camadas rústicas, chantininho e frutas frescas da estação.", tag: "Favorito" },
-    { id: "p4", name: "Bolo Nu Dourado", cat: "casamento", price: 259.9, desc: "Acabamento delicado com folhas douradas comestíveis." },
-    { id: "p5", name: "Cupcake Baunilha & Morango", cat: "cupcakes", price: 9.9, desc: "Caixa com 6 unidades, cobertura artesanal." },
-    { id: "p6", name: "Cupcake Chocolate Belga", cat: "cupcakes", price: 10.9, desc: "Massa amanteigada com ganache de chocolate belga." },
-    { id: "p7", name: "Bolo Ursinho Carinhoso", cat: "temáticos", price: 179.9, desc: "Tema infantil modelado à mão, sabor a escolher.", tag: "Novidade" },
-    { id: "p8", name: "Bolo Jardim Encantado", cat: "temáticos", price: 199.9, desc: "Flores em pasta americana e folhagens comestíveis." },
-    { id: "p9", name: "Vegano de Cenoura", cat: "veganos", price: 119.9, desc: "Sem ingredientes de origem animal, cobertura de chocolate 70%." },
-    { id: "p10", name: "Vegano Limão Siciliano", cat: "veganos", price: 124.9, desc: "Leve e cítrico, com calda artesanal de limão." },
-    { id: "p11", name: "Chocolate Trufado", cat: "aniversario", price: 149.9, desc: "Três camadas de chocolate meio amargo e trufa cremosa." },
-    { id: "p12", name: "Bolo Realeza Rosa & Ouro", cat: "casamento", price: 289.9, desc: "Design elegante com detalhes em dourado comestível.", tag: "Premium" },
+    {
+      id: "p1",
+      name: "Bolo de Baunilha com Morango",
+      cat: "classicos",
+      price: 75.0,
+      desc: "Massa de baunilha fofinha com cobertura de morango e granulado gourmet.",
+      tag: "Mais pedido",
+      img: "images/bolo-baunilha-morango.jpg",
+    },
+    {
+      id: "p2",
+      name: "Bolo de Cenoura com Ganache",
+      cat: "classicos",
+      price: 60.0,
+      desc: "Clássico, caseiro e irresistível: cenoura com ganache ao leite e granulado gourmet.",
+      img: "images/bolo-cenoura.jpg",
+    },
+    {
+      id: "p3",
+      name: "Bolo Beeem Chocolatudo",
+      cat: "chocolate",
+      price: 70.0,
+      desc: "Bolo de chocolate com ganache meio amarga e granulado gourmet — a combinação dos sonhos.",
+      tag: "Best seller",
+      img: "images/bolo-chocolatudo.jpg",
+    },
+    {
+      id: "p4",
+      name: "Bolo de Paçoca",
+      cat: "especiais",
+      price: 65.0,
+      desc: "O bolo de paçoca em sua forma mais irresistível.",
+      img: "images/bolo-pacoca.jpg",
+    },
+    {
+      id: "p5",
+      name: "Bolo de Chocolate com Brigadeiro",
+      cat: "chocolate",
+      price: 70.0,
+      desc: "Cobertura de brigadeiro cremoso, com escorrimento delicado e brilho intenso. Um clássico que nunca sai de cena.",
+      tag: "Clássico",
+      img: "images/bolo-brigadeiro.jpg",
+    },
+    {
+      id: "p6",
+      name: "Bolo de Coco com Beijinho",
+      cat: "classicos",
+      price: 60.0,
+      desc: "Bolo de coco fofinho, bem molhadinho, com cobertura de beijinho. Impossível comer só um pedaço.",
+      img: "images/bolo-coco-beijinho.jpg",
+    },
   ];
 
   const TESTIMONIALS = [
-    { name: "Marina Alves", text: "O bolo de casamento superou qualquer expectativa. Lindo, delicado e saborosíssimo — todos os convidados pediram o contato!" },
-    { name: "Rafael Souza", text: "Pedi o Red Velvet pro aniversário da minha filha e foi surpreendente. Massa fofinha e recheio na medida certa." },
-    { name: "Juliana Prado", text: "Atendimento impecável pelo WhatsApp, entrega no horário combinado e o sabor é simplesmente inesquecível." },
-    { name: "Bianca Ferreira", text: "O bolo temático ficou exatamente como eu imaginei. Muito cuidado nos detalhes e ingredientes de altíssima qualidade." },
+    { name: "olgaluiisa", text: "O melhor!! ❤️😃" },
+    { name: "eloizavieiraalves7", text: "Tudo de bom !!!" },
   ];
 
   /* ---------------------------------------------------------
@@ -37,6 +87,16 @@
   --------------------------------------------------------- */
   function cakeSvg() {
     return `<svg viewBox="0 0 64 64"><use href="#ico-cake"/></svg>`;
+  }
+
+  // Mostra a foto real do bolo (p.img); se o arquivo não existir,
+  // troca automaticamente pelo ícone de bolo — nunca quebra o layout.
+  function productMedia(p) {
+    return `
+      <img src="${p.img}" alt="${p.name}" loading="lazy"
+        onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="media-fallback" style="display:none">${cakeSvg()}</div>
+    `;
   }
 
   function formatPrice(v) {
@@ -171,7 +231,7 @@
       showToast("Seu carrinho está vazio 🌸");
       return;
     }
-    let msg = "Olá, Flor de Açúcar! Quero fazer o seguinte pedido:%0A%0A";
+    let msg = "Olá, Doçuras do céu! Quero fazer o seguinte pedido:%0A%0A";
     entries.forEach(([id, qty]) => {
       const p = PRODUCTS.find((x) => x.id === id);
       if (!p) return;
@@ -191,7 +251,7 @@
     productGrid.innerHTML = PRODUCTS.map((p) => `
       <div class="product-card" data-cat="${p.cat}">
         <div class="pc-media">
-          ${cakeSvg()}
+          ${productMedia(p)}
           <span class="pc-cat">${p.cat}</span>
         </div>
         <div class="pc-body">
@@ -228,145 +288,133 @@
   });
 
   /* ---------------------------------------------------------
-     CARROSSEL — "Mais pedidos"
+     VITRINE ANIMADA — troca de bolo com animação
+     (substitui o carrossel horizontal simples)
   --------------------------------------------------------- */
-  const carouselTrack = document.getElementById("carouselTrack");
-  const carouselDots = document.getElementById("carouselDots");
-  const FEATURED = PRODUCTS.filter((p) => p.tag);
+  const CAT_LABELS = { classicos: "Clássicos", chocolate: "Chocolate", especiais: "Especiais" };
 
-  function renderCarousel() {
-    carouselTrack.innerHTML = FEATURED.map((p) => `
-      <div class="carousel-card" data-id="${p.id}">
-        <span class="cc-tag">${p.tag}</span>
-        <div class="cc-media">${cakeSvg()}</div>
-        <div class="cc-body">
-          <h4>${p.name}</h4>
-          <p>${p.desc}</p>
-          <div class="cc-footer">
-            <span class="cc-price">${formatPrice(p.price)}</span>
-            <div style="display:flex;gap:8px;align-items:center">
-              <button class="mini-add" data-id="${p.id}" aria-label="Adicionar ao carrinho">+</button>
-              <button class="dive-btn" data-id="${p.id}" aria-label="Mergulhe no sabor">Mergulhe</button>
-            </div>
-          </div>
-        </div>
-      </div>
+  const sliderStage = document.getElementById("sliderStage");
+  const sliderPhoto = document.getElementById("sliderPhoto");
+  const sliderIndex = document.getElementById("sliderIndex");
+  const sliderCat = document.getElementById("sliderCat");
+  const sliderName = document.getElementById("sliderName");
+  const sliderDesc = document.getElementById("sliderDesc");
+  const sliderPrice = document.getElementById("sliderPrice");
+  const sliderAddBtn = document.getElementById("sliderAddBtn");
+  const sliderThumbs = document.getElementById("sliderThumbs");
+  const sliderInfo = document.getElementById("sliderInfo");
+  const sliderSection = document.getElementById("mais-pedidos");
+
+  let sliderCurrent = 0;
+  let sliderAutoTimer = null;
+
+  function renderSliderPhoto(p) {
+    sliderPhoto.innerHTML = `
+      <img src="${p.img}" alt="${p.name}" loading="lazy"
+        onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="media-fallback" style="display:none">${cakeSvg()}</div>
+    `;
+  }
+
+  function goToSlide(i, direction) {
+    sliderCurrent = (i + PRODUCTS.length) % PRODUCTS.length;
+    const p = PRODUCTS[sliderCurrent];
+
+    // troca o tema de cor de fundo por categoria do bolo
+    sliderSection.dataset.theme = p.cat;
+
+    // animação de saída
+    sliderPhoto.classList.remove("in");
+    sliderPhoto.classList.add(direction === "prev" ? "out-right" : "out-left");
+    sliderInfo.classList.add("fade-out");
+
+    setTimeout(() => {
+      renderSliderPhoto(p);
+      sliderIndex.textContent = String(sliderCurrent + 1).padStart(2, "0") + " / " + String(PRODUCTS.length).padStart(2, "0");
+      sliderCat.textContent = CAT_LABELS[p.cat] || p.cat;
+      sliderName.textContent = p.name;
+      sliderDesc.textContent = p.desc;
+      sliderPrice.textContent = formatPrice(p.price);
+      sliderAddBtn.dataset.id = p.id;
+
+      sliderPhoto.classList.remove("out-right", "out-left");
+      void sliderPhoto.offsetWidth; // reinicia a animação CSS
+      sliderPhoto.classList.add("in");
+      sliderInfo.classList.remove("fade-out");
+    }, 260);
+
+    sliderThumbs.querySelectorAll(".slider-thumb").forEach((t, idx) => {
+      t.classList.toggle("active", idx === sliderCurrent);
+    });
+  }
+
+  function renderSliderThumbs() {
+    sliderThumbs.innerHTML = PRODUCTS.map((p, i) => `
+      <button class="slider-thumb${i === 0 ? " active" : ""}" data-i="${i}" aria-label="${p.name}">
+        <img src="${p.img}" alt="" loading="lazy" onerror="this.remove();">
+      </button>
     `).join("");
 
-    carouselTrack.querySelectorAll(".mini-add").forEach((btn) => {
-      btn.addEventListener("click", () => addToCart(btn.dataset.id, btn));
-    });
-
-    carouselDots.innerHTML = FEATURED.map((_, i) => `<span class="dot${i === 0 ? " active" : ""}"></span>`).join("");
-
-    // liga botões de mergulho (abrir modal de sabores)
-    carouselTrack.querySelectorAll(".dive-btn").forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        openFlavorModal(btn.dataset.id);
+    sliderThumbs.querySelectorAll(".slider-thumb").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const i = Number(btn.dataset.i);
+        stopSliderAutoplay();
+        goToSlide(i, i < sliderCurrent ? "prev" : "next");
+        startSliderAutoplay();
       });
     });
   }
 
-  function setupCarouselControls() {
-    const cardWidth = () => (carouselTrack.querySelector(".carousel-card")?.offsetWidth || 260) + 22;
-    document.getElementById("prevBtn").addEventListener("click", () => {
-      carouselTrack.scrollBy({ left: -cardWidth(), behavior: "smooth" });
-    });
-    document.getElementById("nextBtn").addEventListener("click", () => {
-      carouselTrack.scrollBy({ left: cardWidth(), behavior: "smooth" });
-    });
-    carouselTrack.addEventListener("scroll", () => {
-      const dots = carouselDots.querySelectorAll(".dot");
-      const idx = Math.round(carouselTrack.scrollLeft / cardWidth());
-      dots.forEach((d, i) => d.classList.toggle("active", i === idx));
-    }, { passive: true });
+  function startSliderAutoplay() {
+    clearInterval(sliderAutoTimer);
+    sliderAutoTimer = setInterval(() => goToSlide(sliderCurrent + 1, "next"), 5000);
+  }
+  function stopSliderAutoplay() {
+    clearInterval(sliderAutoTimer);
   }
 
-  /* ---------------------------------------------------------
-     SABORES / MODAL 'MERGULHE NO SABOR'
-  --------------------------------------------------------- */
-  const FLAVORS = {
-    p1: [
-      { key: 'chocolate', name: 'Chocolate', color: '#6b3a2e', desc: 'Trufa cremosa com cacau belga, intenso e aveludado.' },
-      { key: 'morango', name: 'Morango', color: '#e76f8e', desc: 'Doce e fresco, com calda artesanal de morango.' },
-      { key: 'baunilha', name: 'Baunilha', color: '#f2e6d6', desc: 'Clássico e suave, com toque de fava de baunilha.' }
-    ],
-    p2: [
-      { key: 'ninho', name: 'Leite Ninho', color: '#f6e7c9', desc: 'Creme aveludado com leite em pó, muito cremoso.' },
-      { key: 'nutella', name: 'Nutella', color: '#65423a', desc: 'Avelã caramelizada e chocolate num recheio irresistível.' }
-    ],
-    p11: [
-      { key: 'chocolate', name: 'Chocolate', color: '#4a2b2b', desc: 'Recheio trufado, camadas intensas de cacau.' },
-      { key: 'caramelo', name: 'Caramelo', color: '#c9853a', desc: 'Doce, com leve toque salgado para equilíbrio.' }
-    ],
-  };
+  document.getElementById("sliderPrev").addEventListener("click", () => {
+    stopSliderAutoplay();
+    goToSlide(sliderCurrent - 1, "prev");
+    startSliderAutoplay();
+  });
+  document.getElementById("sliderNext").addEventListener("click", () => {
+    stopSliderAutoplay();
+    goToSlide(sliderCurrent + 1, "next");
+    startSliderAutoplay();
+  });
+  sliderAddBtn.addEventListener("click", () => addToCart(sliderAddBtn.dataset.id, sliderAddBtn));
+  sliderStage.addEventListener("mouseenter", stopSliderAutoplay);
+  sliderStage.addEventListener("mouseleave", startSliderAutoplay);
 
-  const flavorModal = document.getElementById('flavorModal');
-  const flavorList = document.getElementById('flavorList');
-  const flavorOverlay = document.getElementById('flavorOverlay');
-  const flavorCloseBtn = document.getElementById('flavorCloseBtn');
-  const flavorSubtitle = document.getElementById('flavorSubtitle');
-  const fpMedia = document.getElementById('fpMedia');
-  const fpName = document.getElementById('fpName');
-  const fpDesc = document.getElementById('fpDesc');
-  const fpAddBtn = document.getElementById('fpAddBtn');
-  const fpCloseBtn = document.getElementById('fpCloseBtn');
-
-  let currentModalProduct = null;
-  let currentSelectedFlavor = null;
-
-  function openFlavorModal(productId) {
-    const product = PRODUCTS.find((p) => p.id === productId);
-    currentModalProduct = product;
-    const flavors = FLAVORS[productId] || [
-      { key: 'chocolate', name: 'Chocolate', color: '#6b3a2e', desc: 'Sabor intenso e aveludado.' },
-      { key: 'morango', name: 'Morango', color: '#e76f8e', desc: 'Frescor frutado e leve.' },
-      { key: 'baunilha', name: 'Baunilha', color: '#f2e6d6', desc: 'Clássico e equilibrado.' }
-    ];
-
-    document.getElementById('flavorTitle').textContent = `Mergulhe no sabor — ${product.name}`;
-    flavorList.innerHTML = '';
-    flavors.forEach((f, i) => {
-      const btn = document.createElement('button');
-      btn.className = 'flavor-chip' + (i === 0 ? ' active' : '');
-      btn.textContent = f.name;
-      btn.dataset.key = f.key;
-      btn.style.borderColor = 'transparent';
-      btn.addEventListener('click', () => selectFlavor(f));
-      flavorList.appendChild(btn);
-      if (i === 0) selectFlavor(f);
-    });
-
-    flavorModal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
+  function renderFloatingDecor() {
+    const wrap = document.getElementById("sliderDecor");
+    const colors = ["#C46A80", "#C9A15A", "#F6C9D6", "#E6CFA0"];
+    for (let i = 0; i < 10; i++) {
+      const dot = document.createElement("span");
+      dot.style.left = Math.random() * 100 + "%";
+      dot.style.top = Math.random() * 100 + "%";
+      dot.style.background = colors[i % colors.length];
+      dot.style.animationDuration = 5 + Math.random() * 6 + "s";
+      dot.style.animationDelay = Math.random() * 5 + "s";
+      wrap.appendChild(dot);
+    }
   }
 
-  function closeFlavorModal() {
-    flavorModal.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-    currentModalProduct = null;
-    currentSelectedFlavor = null;
+  function initSlider() {
+    renderSliderPhoto(PRODUCTS[0]);
+    sliderPhoto.classList.add("in");
+    sliderIndex.textContent = "01 / " + String(PRODUCTS.length).padStart(2, "0");
+    sliderCat.textContent = CAT_LABELS[PRODUCTS[0].cat] || PRODUCTS[0].cat;
+    sliderName.textContent = PRODUCTS[0].name;
+    sliderDesc.textContent = PRODUCTS[0].desc;
+    sliderPrice.textContent = formatPrice(PRODUCTS[0].price);
+    sliderAddBtn.dataset.id = PRODUCTS[0].id;
+    sliderSection.dataset.theme = PRODUCTS[0].cat;
+    renderSliderThumbs();
+    renderFloatingDecor();
+    startSliderAutoplay();
   }
-
-  function selectFlavor(flavor) {
-    currentSelectedFlavor = flavor;
-    Array.from(flavorList.children).forEach((c) => c.classList.toggle('active', c.dataset.key === flavor.key));
-    fpMedia.style.background = `linear-gradient(160deg, ${flavor.color}, ${flavor.color}88)`;
-    fpMedia.innerHTML = '<svg viewBox="0 0 64 64" style="width:64px;height:64px;color:#fff"><use href="#ico-cake"/></svg>';
-    fpName.textContent = flavor.name;
-    fpDesc.textContent = flavor.desc;
-    fpAddBtn.onclick = () => {
-      if (currentModalProduct) addToCart(currentModalProduct.id);
-      closeFlavorModal();
-      showToast(`${currentModalProduct.name} — ${flavor.name} adicionado ao carrinho`);
-    };
-  }
-
-  flavorOverlay.addEventListener('click', closeFlavorModal);
-  flavorCloseBtn.addEventListener('click', closeFlavorModal);
-  fpCloseBtn.addEventListener('click', closeFlavorModal);
-
 
   /* ---------------------------------------------------------
      DEPOIMENTOS — slider
@@ -512,102 +560,10 @@
   --------------------------------------------------------- */
   document.getElementById("year").textContent = new Date().getFullYear();
   renderProductGrid();
-  renderCarousel();
-  setupCarouselControls();
+  initSlider();
   renderTestimonials();
   startTestimonialAutoplay();
   renderPetals();
   renderCart();
-  renderInstagram();
   setupScrollReveal();
 })();
-
-/* ---------------------------------------------------------
-   INSTAGRAM — seção baseada no perfil (dados do screenshot)
-   Conteúdo estático/placeholder que pode ser substituído
- --------------------------------------------------------- */
-function renderInstagram() {
-  const info = {
-    username: 'docurasdoceu.bolosedoces',
-    display: 'Docuras do céu | Bolos e doces',
-    bio: ['Um pedacinho do céu em cada mordida', 'Por @deborah_alvesc', 'Brás de Pina - RJ', 'Encomendas pelo WhatsApp'],
-    link: 'https://linktr.ee/Docurasdoceu.bolosedoces',
-    highlights: ['Feedbacks','Retiradas','Informações','Sobre mim'],
-    posts: [
-      { caption: 'Bolo de baunilha com morango', color: '#b81f2e' },
-      { caption: 'Ninguém resiste a um bolo de cenoura', color: '#c83a2b' },
-      { caption: 'Bolo beeem chocolatudo', color: '#5b2018' },
-      { caption: 'Não deixe para amanhã — comer hoje!', color: '#aa1f2e' },
-      { caption: 'BOLO de chocolate para você se apaixonar!', color: '#3f1a15' },
-      { caption: 'Delícias disponíveis — encomende', color: '#9c2b2b' }
-    ]
-  };
-
-  const profileEl = document.getElementById('instProfile');
-  const gridEl = document.getElementById('instGrid');
-  if (!profileEl || !gridEl) return;
-  profileEl.innerHTML = `
-    <div class="inst-avatar">${cakeSvg()}</div>
-    <div class="inst-meta">
-      <h3>${info.display}</h3>
-      <div class="handle">@${info.username}</div>
-      <div class="inst-bio">${info.bio.join(' · ')} · <a href="${info.link}" target="_blank" rel="noopener">Link</a></div>
-      <div class="inst-highlights">
-        ${info.highlights.map(h => `<div class="inst-highlight"><div class="icon">❤️</div><div>${h}</div></div>`).join('')}
-      </div>
-    </div>
-  `;
-
-  // Tenta carregar imagens locais automaticamente: assets/instagram/instagram-01.jpg ... instagram-06.jpg
-  const localBase = 'assets/instagram/';
-  const maxLocal = 8; // tentativa de até 8 imagens
-  let loaded = 0;
-  gridEl.innerHTML = '';
-
-  function appendCard(src, caption) {
-    const a = document.createElement('a');
-    a.className = 'inst-card';
-    a.href = 'https://www.instagram.com/docurasdoceu.bolosedoces/';
-    a.target = '_blank';
-    a.rel = 'noopener';
-    a.setAttribute('aria-label', caption || 'Post do Instagram');
-    a.innerHTML = `
-      <div style="position:absolute;inset:0;background-image:url('${src}');background-size:cover;background-position:center;">
-      </div>
-      <div class="ic-inner"><div class="ic-caption">${caption || ''}</div></div>
-    `;
-    gridEl.appendChild(a);
-    loaded++;
-  }
-
-  // verifica existência das imagens locais e anexa as que carregarem
-  for (let i = 1; i <= maxLocal; i++) {
-    const name = 'instagram-' + String(i).padStart(2, '0') + '.jpg';
-    const src = localBase + name;
-    const img = new Image();
-    // closures
-    img.onload = (function(s, idx) {
-      return function() { appendCard(s, info.posts[idx % info.posts.length]?.caption || ''); };
-    })(src, i - 1);
-    img.onerror = (function(i) {
-      return function() { /* falha ao carregar, ignora */ };
-    })(i);
-    // inicia tentativa de carregar
-    img.src = src;
-  }
-
-  // se nenhuma imagem local existir, usa os placeholders definidos
-  // checa após curto delay
-  setTimeout(() => {
-    if (loaded === 0) {
-      gridEl.innerHTML = info.posts.map(p => `
-        <a class="inst-card" href="https://www.instagram.com/docurasdoceu.bolosedoces/" target="_blank" rel="noopener" aria-label="${p.caption}">
-          <div style="position:absolute;inset:0;background:linear-gradient(180deg, ${p.color}, ${p.color}88);display:flex;align-items:center;justify-content:center;">
-            <div style="opacity:.12">${cakeSvg()}</div>
-          </div>
-          <div class="ic-inner"><div class="ic-caption">${p.caption}</div></div>
-        </a>
-      `).join('');
-    }
-  }, 400);
-}
