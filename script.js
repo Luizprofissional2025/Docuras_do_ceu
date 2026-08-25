@@ -8,7 +8,7 @@
 
   // TODO: o número de WhatsApp real não aparecia no print da bio do Instagram.
   // Troque pelo número real da Doçuras do céu (DDI+DDD+número, só dígitos, ex: "5521987654321")
-  const WHATSAPP_NUMBER = "5511999999999";
+  const WHATSAPP_NUMBER = "55 21 98779-8912";
 
   /* ---------------------------------------------------------
      DADOS DOS PRODUTOS — os 6 bolos reais do Instagram
@@ -103,6 +103,16 @@
         color2: "#FFFFFF",
         particles: { color: "#FFFFFF", color2: "#F5F0E8", shape: "flake" },
       },
+    },    
+    {
+      id: "p7",
+      name: "Cenoura com calda de chocolate tradicional",
+      cat: "classicos",
+      price: 60.0,
+      desc: "Clássico, caseiro e irresistível: cenoura com ganache ao leite.",
+      img: "images/bolo-de-cenoura-com-ganache.png",
+      // ganache ao leite escorrendo, brilho suave
+      topping: { color: "#6B3B22", color2: "#8A5330", shine: true },
     },
   ];
 
