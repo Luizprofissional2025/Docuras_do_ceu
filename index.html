@@ -54,6 +54,7 @@
       <a href="#mais-pedidos">Mais Pedidos</a>
       <a href="#como-funciona">Como Funciona</a>
       <a href="#depoimentos">Depoimentos</a>
+      <a href="#cadastro">Cadastre-se</a>
       <a href="#contato">Contato</a>
     </nav>
 
@@ -215,6 +216,54 @@
   <div class="carousel-dots" id="testimonialDots"></div>
 </section>
 
+<!-- ================= CADASTRO / CAPTAÇÃO DE LEADS ================= -->
+<section class="cadastro" id="cadastro">
+  <div class="container cadastro-inner">
+    <div class="cadastro-text">
+      <p class="eyebrow">Faça parte da família</p>
+      <h2>Cadastre-se e receba novidades e cupons</h2>
+      <p class="cadastro-desc">Conte pra gente um pouquinho sobre você. Assim conseguimos avisar em primeira mão sobre novos sabores, promoções e datas especiais perto de você.</p>
+    </div>
+
+    <form class="cadastro-form" id="cadastroForm" novalidate>
+      <div class="form-row">
+        <label for="leadNome">Nome completo</label>
+        <input type="text" id="leadNome" name="nome" placeholder="Seu nome" required minlength="2" autocomplete="name">
+      </div>
+
+      <div class="form-row">
+        <label for="leadIdade">Idade</label>
+        <input type="number" id="leadIdade" name="idade" placeholder="Ex: 28" min="1" max="120" required inputmode="numeric">
+      </div>
+
+      <div class="form-row">
+        <label for="leadEndereco">Endereço</label>
+        <input type="text" id="leadEndereco" name="endereco" placeholder="Rua, número, bairro, cidade" required minlength="5" autocomplete="street-address">
+      </div>
+
+      <div class="form-row">
+        <label for="leadTelefone">WhatsApp / Telefone</label>
+        <input type="tel" id="leadTelefone" name="telefone" placeholder="(21) 90000-0000" autocomplete="tel">
+      </div>
+
+      <div class="form-row full">
+        <label for="leadBolo">Qual seu bolo preferido?</label>
+        <select id="leadBolo" name="boloPreferido" required></select>
+      </div>
+
+      <div class="form-row full form-consent">
+        <label class="consent-check">
+          <input type="checkbox" id="leadConsent" required>
+          <span>Concordo em fornecer meus dados para a Doçuras do céu entrar em contato e enviar novidades, conforme a LGPD.</span>
+        </label>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-block full">Quero me cadastrar</button>
+      <p class="cadastro-msg" id="cadastroMsg" role="status"></p>
+    </form>
+  </div>
+</section>
+
 <!-- ================= CTA PERSONALIZADO ================= -->
 <section class="cta-banner">
   <div class="container cta-inner">
@@ -273,15 +322,12 @@
   <div class="footer-bottom container">
     <span>© <span id="year"></span> Doçuras do céu — Bolos e Doces. Todos os direitos reservados.</span>
     <span class="payments">Pagamento combinado direto no pedido pelo WhatsApp</span>
+    <a href="admin.html" class="admin-link">Área administrativa</a>
   </div>
 </footer>
 
 <!-- ================= BOTÃO FLUTUANTE WHATSAPP ================= -->
-<<<<<<< HEAD
-<a href="https://wa.me/5521987798912?text=Gostaria de fazer um pedido" target="_blank" rel="noopener" class="whatsapp-float" id="whatsappFloat" aria-label="Falar no WhatsApp">
-=======
 <a href="https://wa.me/21987798912?text=Ol%C3%A1%2C%20Do%C3%A7uras%20do%20c%C3%A9u!%20Vim%20pelo%20site%20e%20queria%20fazer%20um%20pedido." target="_blank" rel="noopener" class="whatsapp-float" id="whatsappFloat" aria-label="Falar no WhatsApp">
->>>>>>> f18e5d3ac454e8363b61027f723197fc8c743ee2
   <svg width="30" height="30"><use href="#ico-whatsapp"/></svg>
   <span class="whatsapp-pulse"></span>
 </a>
