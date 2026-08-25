@@ -712,12 +712,28 @@
   }
   window.handleGoogleCredential = handleGoogleCredential;
 
-  function initGoogleButton() {
+  function initGoogleButton(attempt) {
+    attempt = attempt || 0;
     const clientId = document.querySelector('meta[name="google-signin-client_id"]').content;
-    if (!window.google || !clientId || clientId.startsWith("SUBSTITUA_")) {
+
+    if (!clientId || clientId.startsWith("SUBSTITUA_")) {
       authLoginError.textContent = "Login com Google ainda não configurado neste site (falta o Client ID).";
       return;
     }
+
+    // O script do Google carrega em paralelo (async/defer) e pode ainda
+    // não estar pronto quando chegamos aqui — espera até ~6s antes de
+    // desistir, em vez de mostrar um erro falso na primeira checagem.
+    if (!window.google || !window.google.accounts || !window.google.accounts.id) {
+      if (attempt >= 60) {
+        authLoginError.textContent = "Não foi possível carregar o login do Google. Verifique sua conexão e recarregue a página.";
+        return;
+      }
+      setTimeout(() => initGoogleButton(attempt + 1), 100);
+      return;
+    }
+
+    authLoginError.textContent = "";
     google.accounts.id.initialize({ client_id: clientId, callback: handleGoogleCredential });
     google.accounts.id.renderButton(document.getElementById("googleSignInBtn"), {
       theme: "outline", size: "large", shape: "pill", width: 260, text: "continue_with",
