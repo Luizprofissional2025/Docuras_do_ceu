@@ -637,6 +637,82 @@
   });
 
   /* ---------------------------------------------------------
+     CADASTRO / CAPTAÇÃO DE LEADS
+     Os dados ficam salvos no localStorage deste navegador
+     (chave "docurasLeadsDB") e podem ser vistos/exportados
+     pelo dono do site em admin.html.
+
+     IMPORTANTE: como o site não tem servidor, esse "banco de
+     dados" é local ao navegador de quem preenche o formulário.
+     Para reunir os cadastros de todos os visitantes num único
+     lugar (o cenário real de produção), é preciso um backend
+     — ver observação no README / na resposta do chat.
+  --------------------------------------------------------- */
+  const LEADS_DB_KEY = "docurasLeadsDB";
+
+  function getLeadsDB() {
+    try {
+      return JSON.parse(localStorage.getItem(LEADS_DB_KEY)) || [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function saveLead(lead) {
+    const db = getLeadsDB();
+    db.push(lead);
+    localStorage.setItem(LEADS_DB_KEY, JSON.stringify(db));
+  }
+
+  function populateLeadBoloOptions() {
+    const select = document.getElementById("leadBolo");
+    if (!select) return;
+    select.innerHTML =
+      '<option value="" disabled selected>Escolha um sabor</option>' +
+      PRODUCTS.map((p) => `<option value="${p.name}">${p.name}</option>`).join("") +
+      '<option value="Outro">Outro / ainda não experimentei</option>';
+  }
+
+  function setupCadastroForm() {
+    const form = document.getElementById("cadastroForm");
+    if (!form) return;
+    populateLeadBoloOptions();
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const nome = form.nome.value.trim();
+      const idade = form.idade.value.trim();
+      const endereco = form.endereco.value.trim();
+      const telefone = form.telefone.value.trim();
+      const boloPreferido = form.boloPreferido.value;
+      const consentiu = document.getElementById("leadConsent").checked;
+      const msgEl = document.getElementById("cadastroMsg");
+
+      if (!nome || !idade || !endereco || !boloPreferido || !consentiu) {
+        msgEl.textContent = "Preencha nome, idade, endereço, bolo preferido e aceite o uso dos dados. 🙏";
+        msgEl.style.color = "#c0392b";
+        return;
+      }
+
+      saveLead({
+        id: "lead_" + Date.now() + "_" + Math.random().toString(36).slice(2, 7),
+        nome,
+        idade,
+        endereco,
+        telefone,
+        boloPreferido,
+        criadoEm: new Date().toISOString(),
+      });
+
+      msgEl.style.color = "";
+      msgEl.textContent = "Cadastro feito com sucesso! Em breve você recebe nossas novidades. 🌸";
+      showToast("Cadastro realizado! ☁️");
+      form.reset();
+    });
+  }
+
+  /* ---------------------------------------------------------
      SCROLL REVEAL simples (fade-in ao entrar na tela)
   --------------------------------------------------------- */
   function setupScrollReveal() {
@@ -663,4 +739,5 @@
   renderPetals();
   renderCart();
   setupScrollReveal();
+  setupCadastroForm();
 })();
