@@ -41,7 +41,7 @@
     },
     {
       id: "p2",
-      name: "Bolo de Cenoura com Ganache",
+      name: "Bolo de Cenoura com Ganache e brigadeiro de chocolate",
       cat: "classicos",
       price: 60.0,
       desc: "Clássico, caseiro e irresistível: cenoura com ganache ao leite e granulado gourmet.",
