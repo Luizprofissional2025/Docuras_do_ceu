@@ -103,6 +103,112 @@
         color2: "#FFFFFF",
         particles: { color: "#FFFFFF", color2: "#F5F0E8", shape: "flake" },
       },
+    },    
+    {
+      id: "p7",
+      name: "Cenoura com calda de chocolate tradicional",
+      cat: "classicos",
+      price: 60.0,
+      desc: "Clássico, caseiro e irresistível: cenoura com ganache ao leite.",
+      img: "images/bolo-de-cenoura-com-ganache.png",
+      // ganache ao leite escorrendo, brilho suave
+            topping: {
+        color: "#2A1810",
+        color2: "#4A2712",
+        particles: { color: "#5C3820", color2: "#3B2417", shape: "rect" },
+        shine: true,
+      },
+    },
+    {
+      id: "p8",
+      name: "Paçoca Cremosa",
+      cat: "classicos",
+      // TODO: preço estimado (baseado em bolos parecidos) — confirme o valor real.
+      price: 65.0,
+      desc: "Massa de paçoca com cobertura cremosa de paçoca.",
+      img: "images/bolo-pacoca-cremosa.png",
+      // calda amanteigada escorrendo + farofinha de paçoca caindo
+      topping: {
+        color: "#D9A441",
+        color2: "#E6CFA0",
+        particles: { color: "#E6CFA0", color2: "#C9A15A", shape: "crumb" },
+      },
+    },
+    {
+      id: "p9",
+      name: "Fubá com Goiabada",
+      cat: "classicos",
+      // TODO: preço estimado (baseado em bolos parecidos) — confirme o valor real.
+      price: 60.0,
+      desc: "Massa de fubá com calda de goiaba.",
+      img: "images/bolo-fuba-goiabada.png",
+      // calda de goiabada vermelha e brilhante escorrendo
+      topping: { color: "#7A1616", color2: "#B23A2E", shine: true },
+    },
+    {
+      id: "p10",
+      name: "Aipim com Coco",
+      cat: "classicos",
+      // TODO: preço estimado (baseado em bolos parecidos) — confirme o valor real.
+      price: 60.0,
+      desc: "Bolo de aipim com coco.",
+      // TODO: foto ainda não enviada — o card usa o ícone de bolo como substituto
+      // automático até a foto real ser adicionada em images/bolo-aipim-coco.jpg
+      img: "images/bolo-aipim-coco.jpg",
+      // glacê branquinho escorrendo + coco ralado "nevando"
+      topping: {
+        color: "#FBF6EE",
+        color2: "#FFFFFF",
+        particles: { color: "#FFFFFF", color2: "#F5F0E8", shape: "flake" },
+      },
+    },
+    {
+      id: "p11",
+      name: "Milho com Coco",
+      cat: "classicos",
+      // TODO: preço estimado (baseado em bolos parecidos) — confirme o valor real.
+      price: 60.0,
+      desc: "Bolo de milho com coco.",
+      img: "images/bolo-milho-coco.png",
+      // glacê branquinho escorrendo + coco ralado "nevando"
+      topping: {
+        color: "#FBF6EE",
+        color2: "#FFFFFF",
+        particles: { color: "#FFFFFF", color2: "#F5F0E8", shape: "flake" },
+      },
+    },
+    {
+      id: "p12",
+      name: "Cenoura Tradicional",
+      cat: "classicos",
+      // TODO: preço estimado (baseado em bolos parecidos) — confirme o valor real.
+      price: 60.0,
+      desc: "Massa de cenoura com calda de chocolate.",
+      img: "images/bolo-de-cenoura-com-ganache.png",
+      // ganache de chocolate escorrendo, brilho suave
+      topping: {
+        color: "#2A1810",
+        color2: "#4A2712",
+        particles: { color: "#5C3820", color2: "#3B2417", shape: "rect" },
+        shine: true,
+      },
+    },
+    {
+      id: "p13",
+      name: "Ninho Cremoso",
+      cat: "classicos",
+      // TODO: preço estimado (baseado em bolos parecidos) — confirme o valor real.
+      // TODO: descrição estimada a partir da foto — confirme o texto real.
+      price: 70.0,
+      desc: "Massa fofinha com cobertura cremosa de leite Ninho e raspas de chocolate meio amargo.",
+      img: "images/bolo-ninho-cremoso.png",
+      // glacê cremoso claro escorrendo + raspas de chocolate escuro caindo
+      topping: {
+        color: "#F3E9D2",
+        color2: "#FFF8E7",
+        particles: { color: "#3B2417", color2: "#2A1810", shape: "rect" },
+        shine: true,
+      },
     },
   ];
 
