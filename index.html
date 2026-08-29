@@ -380,6 +380,41 @@
     <p class="cart-empty" id="cartEmptyMsg">Seu carrinho está vazio. Que tal adicionar um docinho? 🌸</p>
   </div>
   <div class="cart-footer">
+    <div class="cart-options">
+      <div class="cart-option-group">
+        <span class="cart-option-label">Forma de pagamento</span>
+        <div class="cart-radio-group" id="paymentGroup">
+          <label class="cart-radio">
+            <input type="radio" name="payment" value="pix">
+            <span>Pix</span>
+          </label>
+          <label class="cart-radio">
+            <input type="radio" name="payment" value="debito">
+            <span>Débito</span>
+          </label>
+          <label class="cart-radio">
+            <input type="radio" name="payment" value="credito">
+            <span>Crédito</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="cart-option-group">
+        <span class="cart-option-label">Forma de entrega</span>
+        <div class="cart-radio-group" id="deliveryGroup">
+          <label class="cart-radio">
+            <input type="radio" name="delivery" value="retirada">
+            <span>Retirar em loja</span>
+          </label>
+          <label class="cart-radio">
+            <input type="radio" name="delivery" value="motorista">
+            <span>Motorista parceiro (Uber/99)</span>
+          </label>
+        </div>
+        <p class="cart-delivery-note">O envio por motorista de aplicativo é de responsabilidade total do próprio cliente.</p>
+      </div>
+    </div>
+
     <div class="cart-total-row">
       <span>Total</span>
       <strong id="cartTotal">R$ 0,00</strong>
