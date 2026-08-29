@@ -42,10 +42,10 @@
     },
     {
       id: "p2",
-      name: "Bolo de Cenoura com Ganache",
-      cat: "classicos",
+      name: "Bolo cenoura cremosa",
+      cat: "Especial",
       price: 60.0,
-      desc: "Clássico, caseiro e irresistível: cenoura com ganache ao leite e granulado gourmet.",
+      desc: "Massa tradicional e fofinha de cenoura com uma cobertura generosa e aveludada de ganache de chocolate ao leite, finalizada com granulado gourmet por cima.",
       info: ["Tamanho: 22 cm", "Rendimento: 12 a 15 fatias"],
       img: "images/bolo-cenoura.jpg",
       // ganache ao leite escorrendo, brilho suave
@@ -53,12 +53,12 @@
     },
     {
       id: "p3",
-      name: "Bolo Beeem Chocolatudo",
-      cat: "chocolate",
+      name: "Bolo de chocolate com brigadeiro",
+      cat: "Especial",
       price: 70.0,
-      desc: "Bolo de chocolate com ganache meio amarga e granulado gourmet — a combinação dos sonhos.",
+      desc: "Massa de chocolate fofinha com uma cobertura generosa de brigadeiro tradicional e granulado gourmet por cima.",
       info: ["Tamanho: 22 cm", "Rendimento: 12 a 15 fatias"],
-      tag: "Best seller",
+      tag: "Chocolatudo",
       img: "images/bolo-chocolatudo.jpg",
       // calda de chocolate bem grossa escorrendo + raspas de chocolate caindo
       topping: {
@@ -97,10 +97,10 @@
     },
     {
       id: "p6",
-      name: "Bolo de Coco com Beijinho",
-      cat: "classicos",
+      name: "Bolo amanteigado com beijinho",
+      cat: "Especial",
       price: 60.0,
-      desc: "Bolo de coco fofinho, bem molhadinho, com cobertura de beijinho. Impossível comer só um pedaço.",
+      desc: "Massa amanteigada tradicional, fofinha e com sabor caseiro, coberta com beijinho cremoso e coco ralado.",
       info: ["Tamanho: 22 cm", "Rendimento: 12 a 15 fatias"],
       img: "images/bolo-coco-beijinho.jpg",
       // glacê branquinho escorrendo + coco ralado "nevando"
@@ -128,11 +128,11 @@
     },
     {
       id: "p8",
-      name: "Paçoca Cremosa",
+      name: "Bolo de paçoca cremosa",
       cat: "classicos",
       // TODO: preço estimado (baseado em bolos parecidos) — confirme o valor real.
       price: 65.0,
-      desc: "Massa de paçoca com cobertura cremosa de paçoca.",
+      desc: "Massa fofinha de paçoca com uma cobertura generosa e cremosa de paçoca, finalizada com paçoca esfarelada por cima.",
       info: ["Tamanho: 22 cm", "Rendimento: 12 a 15 fatias"],
       img: "images/bolo-pacoca-cremosa.png",
       // calda amanteigada escorrendo + farofinha de paçoca caindo
@@ -144,11 +144,11 @@
     },
     {
       id: "p9",
-      name: "Fubá com Goiabada",
+      name: "Bolo de fubá com goiabada",
       cat: "classicos",
       // TODO: preço estimado (baseado em bolos parecidos) — confirme o valor real.
       price: 60.0,
-      desc: "Massa de fubá com calda de goiaba.",
+      desc: "Massa tradicional e muito macia de fubá, combinada com uma calda artesanal e generosa de goiabada escorrendo por cima.",
       info: ["Tamanho: 22 cm", "Rendimento: 12 a 15 fatias"],
       img: "images/bolo-fuba-goiabada.png",
       // calda de goiabada vermelha e brilhante escorrendo
@@ -174,11 +174,11 @@
     },
     {
       id: "p11",
-      name: "Milho com Coco",
+      name: "Bolo de milho com coco",
       cat: "classicos",
       // TODO: preço estimado (baseado em bolos parecidos) — confirme o valor real.
       price: 60.0,
-      desc: "Bolo de milho com coco.",
+      desc: "Massa super úmida e tradicional de milho verde, finalizada com uma camada generosa de coco ralado e fios de leite condensado por cima.",
       info: ["Tamanho: 22 cm", "Rendimento: 12 a 15 fatias"],
       img: "images/bolo-milho-coco.png",
       // glacê branquinho escorrendo + coco ralado "nevando"
@@ -207,12 +207,12 @@
     },
     {
       id: "p13",
-      name: "Ninho Cremoso",
-      cat: "classicos",
+      name: "Bolo ninho cremoso",
+      cat: "Especial",
       // TODO: preço estimado (baseado em bolos parecidos) — confirme o valor real.
       // TODO: descrição estimada a partir da foto — confirme o texto real.
       price: 70.0,
-      desc: "Massa fofinha com cobertura cremosa de leite Ninho e raspas de chocolate meio amargo.",
+      desc: "Massa super fofinha combinada com uma cobertura altamente cremosa de Leite Ninho, finalizada com granulado gourmet por cima. ",
       info: ["Tamanho: 22 cm", "Rendimento: 12 a 15 fatias"],
       img: "images/bolo-ninho-cremoso.png",
       // glacê cremoso claro escorrendo + raspas de chocolate escuro caindo
