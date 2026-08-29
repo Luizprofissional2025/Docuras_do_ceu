@@ -613,22 +613,12 @@ h3{font-size:1.35rem;}
   list-style:none;
 }
 .pc-info li{
-  display:flex;
-  align-items:center;
-  gap:6px;
   font-size:.72rem;
   font-weight:500;
   letter-spacing:.2px;
   line-height:1.3;
   color: var(--rose-deep);
   opacity:.72;
-}
-.pc-info li::before{
-  content:"";
-  width:4px; height:4px;
-  border-radius:50%;
-  background: var(--gold);
-  flex-shrink:0;
 }
 
 /* =========================================================
