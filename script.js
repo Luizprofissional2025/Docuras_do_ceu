@@ -420,6 +420,24 @@
   cartOverlay.addEventListener("click", closeCart);
 
   /* ---------------------------------------------------------
+     CARRINHO — pagamento e entrega
+  --------------------------------------------------------- */
+  const PAYMENT_LABELS = { pix: "Pix", debito: "Débito", credito: "Crédito" };
+  const DELIVERY_LABELS = { retirada: "Retirar em loja", motorista: "Motorista parceiro (Uber/99)" };
+
+  function setupCartOptionGroup(groupId) {
+    const group = document.getElementById(groupId);
+    if (!group) return;
+    group.addEventListener("change", () => {
+      group.querySelectorAll(".cart-radio").forEach((label) => {
+        label.classList.toggle("checked", label.querySelector("input").checked);
+      });
+    });
+  }
+  setupCartOptionGroup("paymentGroup");
+  setupCartOptionGroup("deliveryGroup");
+
+  /* ---------------------------------------------------------
      CHECKOUT — monta pedido e envia pro WhatsApp
   --------------------------------------------------------- */
   document.getElementById("checkoutBtn").addEventListener("click", () => {
@@ -428,13 +446,31 @@
       showToast("Seu carrinho está vazio 🌸");
       return;
     }
+
+    const paymentInput = document.querySelector('input[name="payment"]:checked');
+    if (!paymentInput) {
+      showToast("Escolha a forma de pagamento 🌸");
+      return;
+    }
+    const deliveryInput = document.querySelector('input[name="delivery"]:checked');
+    if (!deliveryInput) {
+      showToast("Escolha a forma de entrega 🌸");
+      return;
+    }
+
     let msg = "Olá, Doçuras do céu! Quero fazer o seguinte pedido:%0A%0A";
     entries.forEach(([id, qty]) => {
       const p = PRODUCTS.find((x) => x.id === id);
       if (!p) return;
       msg += `• ${qty}x ${p.name} — ${formatPrice(p.price * qty)}%0A`;
     });
-    msg += `%0ATotal: ${formatPrice(cartTotal())}%0A%0AAguardo confirmação de data e pagamento, obrigado(a)!`;
+    msg += `%0ATotal: ${formatPrice(cartTotal())}%0A`;
+    msg += `%0AForma de pagamento: ${PAYMENT_LABELS[paymentInput.value]}`;
+    msg += `%0AForma de entrega: ${DELIVERY_LABELS[deliveryInput.value]}`;
+    if (deliveryInput.value === "motorista") {
+      msg += `%0A(Envio por motorista de aplicativo é de responsabilidade do cliente)`;
+    }
+    msg += `%0A%0AAguardo confirmação de data e pagamento, obrigado(a)!`;
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
     window.open(url, "_blank", "noopener");
   });
