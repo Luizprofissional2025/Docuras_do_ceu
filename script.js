@@ -454,7 +454,7 @@
         <div class="pc-body">
           <h4>${p.name}</h4>
           <p>${p.desc}</p>
-          ${p.info ? p.info.map((linha) => `<p class="pc-info">${linha}</p>`).join("") : ""}
+          ${p.info ? `<ul class="pc-info">${p.info.map((linha) => `<li>${linha}</li>`).join("")}</ul>` : ""}
           <div class="pc-footer">
             <span class="pc-price">${formatPrice(p.price)}</span>
             <button class="add-btn" data-id="${p.id}">Adicionar</button>
