@@ -30,7 +30,6 @@
       cat: "classicos",
       price: 75.0,
       desc: "Massa de baunilha fofinha com cobertura de morango e granulado gourmet.",
-      subdesc:"	•	Tamanho 22 cm, •	Rendimento 12 a 15 fatias",
       tag: "Mais pedido",
       img: "images/bolo-baunilha-morango.jpg",
       // calda de morango escorrendo + granulado de chocolate caindo
