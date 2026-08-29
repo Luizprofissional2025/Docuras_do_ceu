@@ -30,6 +30,8 @@
       cat: "Especial",
       price: 75.0,
       desc: "Massa fofinha de baunilha com uma cobertura generosa e cremosa de brigadeiro de morango, finalizada com granulado gourmet por cima. Tamanho: 22 cm - Rendimento: 12 a 15 fatias",
+      tamanho:"Tamanho: 22 cm",
+      fatias: "Rendimento: 12 a 15 fatias",
       tag: "Mais pedido",
       img: "images/bolo-baunilha-morango.jpg",
       // calda de morango escorrendo + granulado de chocolate caindo
