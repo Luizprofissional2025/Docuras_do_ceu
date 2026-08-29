@@ -603,6 +603,16 @@ h3{font-size:1.35rem;}
 .add-btn:hover{ background: var(--rose-dark); transform: translateY(-2px); }
 .add-btn.added{ background: var(--gold); }
 
+.pc-info {
+  margin: 4px 0 0;
+  padding-left: 18px;
+  font-size: 0.85rem;
+  color: #8a8a8a;
+}
+.pc-info li {
+  line-height: 1.4;
+}
+
 /* =========================================================
    COMO FUNCIONA
 ========================================================= */
