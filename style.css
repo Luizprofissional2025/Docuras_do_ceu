@@ -603,14 +603,32 @@ h3{font-size:1.35rem;}
 .add-btn:hover{ background: var(--rose-dark); transform: translateY(-2px); }
 .add-btn.added{ background: var(--gold); }
 
-.pc-info {
-  margin: 4px 0 0;
-  padding-left: 18px;
-  font-size: 0.85rem;
-  color: #8a8a8a;
+.pc-info{
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+  margin-top:6px;
+  padding-top:8px;
+  border-top:1px dashed var(--blush);
+  list-style:none;
 }
-.pc-info li {
-  line-height: 1.4;
+.pc-info li{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  font-size:.72rem;
+  font-weight:500;
+  letter-spacing:.2px;
+  line-height:1.3;
+  color: var(--rose-deep);
+  opacity:.72;
+}
+.pc-info li::before{
+  content:"";
+  width:4px; height:4px;
+  border-radius:50%;
+  background: var(--gold);
+  flex-shrink:0;
 }
 
 /* =========================================================
