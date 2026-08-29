@@ -30,7 +30,7 @@
       cat: "Especial",
       price: 75.0,
       desc: "Massa fofinha de baunilha com uma cobertura generosa e cremosa de brigadeiro de morango, finalizada com granulado gourmet por cima.",
-      desc:"Tamanho: 22 cm",
+      info: "Tamanho: 22 cm  •  Rendimento: 12 a 15 fatias",
       tag: "Mais pedido",
       img: "images/bolo-baunilha-morango.jpg",
       // calda de morango escorrendo + granulado de chocolate caindo
@@ -46,6 +46,7 @@
       cat: "classicos",
       price: 60.0,
       desc: "Clássico, caseiro e irresistível: cenoura com ganache ao leite e granulado gourmet.",
+      info: "Tamanho: 22 cm  •  Rendimento: 12 a 15 fatias",
       img: "images/bolo-cenoura.jpg",
       // ganache ao leite escorrendo, brilho suave
       topping: { color: "#6B3B22", color2: "#8A5330", shine: true },
@@ -56,6 +57,7 @@
       cat: "chocolate",
       price: 70.0,
       desc: "Bolo de chocolate com ganache meio amarga e granulado gourmet — a combinação dos sonhos.",
+      info: "Tamanho: 22 cm  •  Rendimento: 12 a 15 fatias",
       tag: "Best seller",
       img: "images/bolo-chocolatudo.jpg",
       // calda de chocolate bem grossa escorrendo + raspas de chocolate caindo
@@ -72,6 +74,7 @@
       cat: "especiais",
       price: 65.0,
       desc: "O bolo de paçoca em sua forma mais irresistível.",
+      info: "Tamanho: 22 cm  •  Rendimento: 12 a 15 fatias",
       img: "images/bolo-pacoca.jpg",
       // calda amanteigada escorrendo + farofinha de paçoca caindo
       topping: {
@@ -86,6 +89,7 @@
       cat: "chocolate",
       price: 70.0,
       desc: "Cobertura de brigadeiro cremoso, com escorrimento delicado e brilho intenso. Um clássico que nunca sai de cena.",
+      info: "Tamanho: 22 cm  •  Rendimento: 12 a 15 fatias",
       tag: "Clássico",
       img: "images/bolo-brigadeiro.jpg",
       // brigadeiro cremoso escorrendo com brilho intenso
@@ -97,6 +101,7 @@
       cat: "classicos",
       price: 60.0,
       desc: "Bolo de coco fofinho, bem molhadinho, com cobertura de beijinho. Impossível comer só um pedaço.",
+      info: "Tamanho: 22 cm  •  Rendimento: 12 a 15 fatias",
       img: "images/bolo-coco-beijinho.jpg",
       // glacê branquinho escorrendo + coco ralado "nevando"
       topping: {
@@ -111,6 +116,7 @@
       cat: "classicos",
       price: 60.0,
       desc: "Clássico, caseiro e irresistível: cenoura com ganache ao leite.",
+      info: "Tamanho: 22 cm  •  Rendimento: 12 a 15 fatias",
       img: "images/bolo-de-cenoura-com-ganache.png",
       // ganache ao leite escorrendo, brilho suave
             topping: {
@@ -127,6 +133,7 @@
       // TODO: preço estimado (baseado em bolos parecidos) — confirme o valor real.
       price: 65.0,
       desc: "Massa de paçoca com cobertura cremosa de paçoca.",
+      info: "Tamanho: 22 cm  •  Rendimento: 12 a 15 fatias",
       img: "images/bolo-pacoca-cremosa.png",
       // calda amanteigada escorrendo + farofinha de paçoca caindo
       topping: {
@@ -142,6 +149,7 @@
       // TODO: preço estimado (baseado em bolos parecidos) — confirme o valor real.
       price: 60.0,
       desc: "Massa de fubá com calda de goiaba.",
+      info: "Tamanho: 22 cm  •  Rendimento: 12 a 15 fatias",
       img: "images/bolo-fuba-goiabada.png",
       // calda de goiabada vermelha e brilhante escorrendo
       topping: { color: "#7A1616", color2: "#B23A2E", shine: true },
@@ -153,6 +161,7 @@
       // TODO: preço estimado (baseado em bolos parecidos) — confirme o valor real.
       price: 60.0,
       desc: "Bolo de aipim com coco.",
+      info: "Tamanho: 22 cm  •  Rendimento: 12 a 15 fatias",
       // TODO: foto ainda não enviada — o card usa o ícone de bolo como substituto
       // automático até a foto real ser adicionada em images/bolo-aipim-coco.jpg
       img: "images/bolo-aipim-coco.jpg",
@@ -170,6 +179,7 @@
       // TODO: preço estimado (baseado em bolos parecidos) — confirme o valor real.
       price: 60.0,
       desc: "Bolo de milho com coco.",
+      info: "Tamanho: 22 cm  •  Rendimento: 12 a 15 fatias",
       img: "images/bolo-milho-coco.png",
       // glacê branquinho escorrendo + coco ralado "nevando"
       topping: {
@@ -185,6 +195,7 @@
       // TODO: preço estimado (baseado em bolos parecidos) — confirme o valor real.
       price: 60.0,
       desc: "Massa de cenoura com calda de chocolate.",
+      info: "Tamanho: 22 cm  •  Rendimento: 12 a 15 fatias",
       img: "images/bolo-de-cenoura-com-ganache.png",
       // ganache de chocolate escorrendo, brilho suave
       topping: {
@@ -202,6 +213,7 @@
       // TODO: descrição estimada a partir da foto — confirme o texto real.
       price: 70.0,
       desc: "Massa fofinha com cobertura cremosa de leite Ninho e raspas de chocolate meio amargo.",
+      info: "Tamanho: 22 cm  •  Rendimento: 12 a 15 fatias",
       img: "images/bolo-ninho-cremoso.png",
       // glacê cremoso claro escorrendo + raspas de chocolate escuro caindo
       topping: {
@@ -442,6 +454,7 @@
         <div class="pc-body">
           <h4>${p.name}</h4>
           <p>${p.desc}</p>
+          ${p.info ? `<p class="pc-info">${p.info}</p>` : ""}
           <div class="pc-footer">
             <span class="pc-price">${formatPrice(p.price)}</span>
             <button class="add-btn" data-id="${p.id}">Adicionar</button>
