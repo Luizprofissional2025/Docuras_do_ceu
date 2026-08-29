@@ -29,7 +29,7 @@
       name: "Bolo de baunilha com morango",
       cat: "Especial",
       price: 75.0,
-      desc: "Massa fofinha de baunilha com uma cobertura generosa e cremosa de brigadeiro de morango, finalizada com granulado gourmet por cima. Tamanho: 22 cm - Rendimento: 12 a 15 fatias",
+      desc: "Massa fofinha de baunilha com uma cobertura generosa e cremosa de brigadeiro de morango, finalizada com granulado gourmet por cima.",
       tamanho:"Tamanho: 22 cm",
       fatias: "Rendimento: 12 a 15 fatias",
       tag: "Mais pedido",
