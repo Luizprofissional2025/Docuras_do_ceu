@@ -26,11 +26,11 @@
   const PRODUCTS = [
     {
       id: "p1",
-      name: "Bolo de Baunilha com Morango",
-      cat: "classicos",
+      name: "Bolo de baunilha com morango",
+      cat: "Especial",
       price: 75.0,
-      desc: "Massa de baunilha fofinha com cobertura de morango e granulado gourmet.",
-      tag: "Mais pedido",
+      desc: "Massa fofinha de baunilha com uma cobertura generosa e cremosa de brigadeiro de morango, finalizada com granulado gourmet por cima.",
+      tag: "Tamanho: 22 cm - Rendimento: 12 a 15 fatias",
       img: "images/bolo-baunilha-morango.jpg",
       // calda de morango escorrendo + granulado de chocolate caindo
       topping: {
