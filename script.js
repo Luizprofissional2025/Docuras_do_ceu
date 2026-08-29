@@ -377,7 +377,6 @@
   const sliderCat = document.getElementById("sliderCat");
   const sliderName = document.getElementById("sliderName");
   const sliderDesc = document.getElementById("sliderDesc");
-  const sliderSubdesc = document.getElementById("sliderSubdesc");
   const sliderPrice = document.getElementById("sliderPrice");
   const sliderAddBtn = document.getElementById("sliderAddBtn");
   const sliderThumbs = document.getElementById("sliderThumbs");
@@ -417,7 +416,7 @@
       sliderCat.textContent = CAT_LABELS[p.cat] || p.cat;
       sliderName.textContent = p.name;
       sliderDesc.textContent = p.desc;
-      sliderSubdesc.textContent = p.subdesc;
+      sliderDesc.textContent = p.Subdesc;
       sliderPrice.textContent = formatPrice(p.price);
       sliderAddBtn.dataset.id = p.id;
 
@@ -492,7 +491,6 @@
     sliderCat.textContent = CAT_LABELS[PRODUCTS[0].cat] || PRODUCTS[0].cat;
     sliderName.textContent = PRODUCTS[0].name;
     sliderDesc.textContent = PRODUCTS[0].desc;
-    sliderSubdesc.textContent = PRODUCTS[0].subdesc;
     sliderPrice.textContent = formatPrice(PRODUCTS[0].price);
     sliderAddBtn.dataset.id = PRODUCTS[0].id;
     sliderSection.dataset.theme = PRODUCTS[0].cat;
