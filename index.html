@@ -213,13 +213,12 @@
 <!-- ================= CATEGORIAS ================= -->
 <section class="categories container">
   <button class="cat-pill active" data-filter="todos">Todos</button>
-  <button class="cat-pill" data-filter="classicos">Clássicos</button>
-  <button class="cat-pill" data-filter="chocolate">Chocolate</button>
-  <button class="cat-pill" data-filter="especiais">Especiais</button>
+  <button class="cat-pill" data-filter="classica">Clássica</button>
+  <button class="cat-pill" data-filter="especial">Especial</button>
 </section>
 
 <!-- ================= VITRINE ANIMADA DE BOLOS ================= -->
-<section class="cake-slider" id="mais-pedidos" data-theme="classicos">
+<section class="cake-slider" id="mais-pedidos" data-theme="classica">
   <div class="container section-head">
     <p class="eyebrow">Os favoritos da casa</p>
     <h2>Escolha seu bolo favorito</h2>
@@ -381,6 +380,15 @@
   </div>
   <div class="cart-footer">
     <div class="cart-options">
+      <div class="cart-option-group">
+        <span class="cart-option-label">Data e horário da encomenda</span>
+        <div class="cart-datetime-row">
+          <input type="date" id="orderDate" class="cart-date-input" aria-label="Data da encomenda">
+          <input type="time" id="orderTime" class="cart-time-input" aria-label="Horário da encomenda">
+        </div>
+        <p class="cart-delivery-note">Nossos bolos são feitos somente por encomenda — escolha a data e o horário desejados para retirada ou entrega.</p>
+      </div>
+
       <div class="cart-option-group">
         <span class="cart-option-label">Forma de pagamento</span>
         <div class="cart-radio-group" id="paymentGroup">
