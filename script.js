@@ -351,15 +351,17 @@
 
   /* ---------------------------------------------------------
      CARRINHO — data e horário da encomenda
-     Como os bolos são feitos só por encomenda, a data mínima
-     selecionável é sempre o dia seguinte (sem pedido para hoje).
+     Como os bolos são feitos só por encomenda, com no mínimo
+     2 dias de antecedência, a data mínima selecionável é sempre
+     hoje + 2 dias (não permite pedido pra hoje nem pra amanhã).
   --------------------------------------------------------- */
   const orderDateInput = document.getElementById("orderDate");
   const orderTimeInput = document.getElementById("orderTime");
   if (orderDateInput) {
-    const tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    const minDate = tomorrow.toISOString().split("T")[0];
+    const minLeadDays = 2;
+    const minDay = new Date();
+    minDay.setDate(minDay.getDate() + minLeadDays);
+    const minDate = minDay.toISOString().split("T")[0];
     orderDateInput.min = minDate;
   }
 
@@ -393,19 +395,21 @@
 
     const dateVal = orderDateInput ? orderDateInput.value : "";
     const timeVal = orderTimeInput ? orderTimeInput.value : "";
+    const dateField = orderDateInput ? orderDateInput.closest(".cart-datetime-field") : null;
+    const timeField = orderTimeInput ? orderTimeInput.closest(".cart-datetime-field") : null;
     if (!dateVal || !timeVal) {
       showToast("Escolha a data e o horário da encomenda 🌸");
-      orderDateInput && orderDateInput.classList.toggle("field-error", !dateVal);
-      orderTimeInput && orderTimeInput.classList.toggle("field-error", !timeVal);
+      dateField && dateField.classList.toggle("field-error", !dateVal);
+      timeField && timeField.classList.toggle("field-error", !timeVal);
       return;
     }
     if (orderDateInput.min && dateVal < orderDateInput.min) {
-      showToast("Nossos bolos são feitos por encomenda — escolha uma data a partir de amanhã 🌸");
-      orderDateInput.classList.add("field-error");
+      showToast("Nossos bolos são feitos por encomenda com 2 dias de antecedência — escolha uma data mais à frente 🌸");
+      dateField && dateField.classList.add("field-error");
       return;
     }
-    orderDateInput.classList.remove("field-error");
-    orderTimeInput.classList.remove("field-error");
+    dateField && dateField.classList.remove("field-error");
+    timeField && timeField.classList.remove("field-error");
 
     const paymentInput = document.querySelector('input[name="payment"]:checked');
     if (!paymentInput) {
