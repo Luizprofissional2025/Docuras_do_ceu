@@ -870,22 +870,36 @@ h3{font-size:1.35rem;}
 }
 
 .cart-datetime-row{ display:flex; gap:8px; }
-.cart-date-input,
-.cart-time-input{
+.cart-datetime-field{
   flex:1;
-  padding: 8px 12px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding: 9px 14px;
   border-radius: 999px;
   border: 1.5px solid var(--blush-soft);
   background: var(--cream);
+  color: var(--rose-deep);
+  cursor:pointer;
+  transition: border-color .2s ease, background .2s ease;
+}
+.cart-datetime-field:focus-within{ border-color: var(--rose); background: var(--blush-soft); }
+.cart-datetime-field.field-error{ border-color: var(--rose-deep); }
+.cart-datetime-field svg{ flex-shrink:0; opacity:.8; }
+.cart-date-input,
+.cart-time-input{
+  flex:1;
+  min-width:0;
+  border:none;
+  background:transparent;
+  padding:0;
   font-family: var(--font-body);
   font-size:.82rem;
   color: var(--ink);
-  transition: border-color .2s ease;
 }
 .cart-date-input:focus,
-.cart-time-input:focus{ outline:none; border-color: var(--rose); }
-.cart-date-input.field-error,
-.cart-time-input.field-error{ border-color: var(--rose-deep); }
+.cart-time-input:focus{ outline:none; }
+.cart-delivery-note strong{ color: var(--rose-deep); font-weight:600; }
 
 .cart-total-row{
   display:flex; justify-content:space-between; align-items:center;
