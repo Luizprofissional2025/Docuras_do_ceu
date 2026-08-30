@@ -11,27 +11,67 @@
   const WHATSAPP_NUMBER = "5521987798912";
 
   /* ---------------------------------------------------------
-     DADOS DOS PRODUTOS — os 6 bolos reais do Instagram
-     @docurasdoceu.bolosedoces
+     DADOS DOS PRODUTOS — catálogo atual (9 bolos)
 
-     img: caminho da foto do bolo. Salve as fotos reais (exportadas
-     do Instagram, sem a moldura do navegador) numa pasta "images/"
-     ao lado deste arquivo, usando esses mesmos nomes de arquivo.
-     Se a imagem não existir, o card usa um ícone de bolo como
-     substituto automático — o site não quebra.
+     img: caminho da foto do bolo, dentro da pasta "images/" ao lado
+     deste arquivo. Se a imagem não existir, o card usa um ícone de
+     bolo como substituto automático — o site não quebra.
 
-     price: TODO — os preços não apareciam nas legendas do Instagram.
-     Troque pelos valores reais de cada bolo.
+     price: TODO — confirme/ajuste os valores reais de cada bolo.
+     Mantive os preços que já estavam definidos para os bolos que já
+     existiam no catálogo antigo; para "Bolo cenoura cremosa" ainda
+     não temos uma foto exclusiva (ver aviso no chat).
   --------------------------------------------------------- */
   const PRODUCTS = [
     {
       id: "p1",
+      name: "Bolo amanteigado com beijinho",
+      cat: "especial",
+      price: 60.0,
+      desc: "Massa amanteigada tradicional, fofinha e com sabor caseiro, coberta com beijinho cremoso e coco ralado.",
+      info: ["Tamanho: 22 cm", "Rendimento: 12 a 15 fatias"],
+      img: "images/bolo-amanteigado-beijinho.jpg",
+      // beijinho cremoso escorrendo + coco ralado "nevando"
+      topping: {
+        color: "#FBF6EE",
+        color2: "#FFFFFF",
+        particles: { color: "#FFFFFF", color2: "#F5F0E8", shape: "flake" },
+      },
+    },
+    {
+      id: "p2",
+      name: "Bolo de cenoura tradicional",
+      cat: "classica",
+      price: 60.0,
+      desc: "Massa tradicional e fofinha de cenoura com uma cobertura generosa e brilhante de calda de chocolate.",
+      info: ["Tamanho: 22 cm", "Rendimento: 12 a 15 fatias"],
+      img: "images/bolo-cenoura-tradicional.jpg",
+      // calda de chocolate brilhante escorrendo
+      topping: { color: "#3B2417", color2: "#5C3820", shine: true },
+    },
+    {
+      id: "p3",
+      name: "Bolo de chocolate com brigadeiro",
+      cat: "especial",
+      price: 70.0,
+      desc: "Massa de chocolate fofinha com uma cobertura generosa de brigadeiro tradicional e granulado gourmet por cima.",
+      info: ["Tamanho: 22 cm", "Rendimento: 12 a 15 fatias"],
+      img: "images/bolo-chocolate-brigadeiro.jpg",
+      // brigadeiro escorrendo + granulado gourmet caindo
+      topping: {
+        color: "#3B2417",
+        color2: "#5C3820",
+        particles: { color: "#2A1810", color2: "#4A2712", shape: "rect" },
+        shine: true,
+      },
+    },
+    {
+      id: "p4",
       name: "Bolo de baunilha com morango",
-      cat: "Especial",
+      cat: "especial",
       price: 75.0,
       desc: "Massa fofinha de baunilha com uma cobertura generosa e cremosa de brigadeiro de morango, finalizada com granulado gourmet por cima.",
       info: ["Tamanho: 22 cm", "Rendimento: 12 a 15 fatias"],
-      tag: "Mais pedido",
       img: "images/bolo-baunilha-morango.jpg",
       // calda de morango escorrendo + granulado de chocolate caindo
       topping: {
@@ -41,85 +81,46 @@
       },
     },
     {
-      id: "p2",
-      name: "Bolo cenoura cremosa",
-      cat: "Especial",
-      price: 60.0,
-      desc: "Massa tradicional e fofinha de cenoura com uma cobertura generosa e aveludada de ganache de chocolate ao leite, finalizada com granulado gourmet por cima.",
-      info: ["Tamanho: 22 cm", "Rendimento: 12 a 15 fatias"],
-      img: "images/bolo-cenoura.jpg",
-      // ganache ao leite escorrendo, brilho suave
-      topping: { color: "#6B3B22", color2: "#8A5330", shine: true },
-    },
-    {
-      id: "p3",
-      name: "Bolo de chocolate com brigadeiro",
-      cat: "Especial",
+      id: "p5",
+      name: "Bolo ninho cremoso",
+      cat: "especial",
       price: 70.0,
-      desc: "Massa de chocolate fofinha com uma cobertura generosa de brigadeiro tradicional e granulado gourmet por cima.",
+      desc: "Massa super fofinha combinada com uma cobertura altamente cremosa de Leite Ninho, finalizada com granulado gourmet por cima.",
       info: ["Tamanho: 22 cm", "Rendimento: 12 a 15 fatias"],
-      tag: "Chocolatudo",
-      img: "images/bolo-chocolatudo.jpg",
-      // calda de chocolate bem grossa escorrendo + raspas de chocolate caindo
+      img: "images/bolo-ninho-cremoso.jpg",
+      // glacê cremoso claro escorrendo + raspas de chocolate escuro caindo
       topping: {
-        color: "#2A1810",
-        color2: "#4A2712",
-        particles: { color: "#5C3820", color2: "#3B2417", shape: "rect" },
+        color: "#F3E9D2",
+        color2: "#FFF8E7",
+        particles: { color: "#3B2417", color2: "#2A1810", shape: "rect" },
         shine: true,
       },
     },
     {
-      id: "p4",
-      name: "Bolo de Paçoca",
-      cat: "especiais",
-      price: 65.0,
-      desc: "O bolo de paçoca em sua forma mais irresistível.",
-      info: ["Tamanho: 22 cm", "Rendimento: 12 a 15 fatias"],
-      img: "images/bolo-pacoca.jpg",
-      // calda amanteigada escorrendo + farofinha de paçoca caindo
-      topping: {
-        color: "#D9A441",
-        color2: "#E6CFA0",
-        particles: { color: "#E6CFA0", color2: "#C9A15A", shape: "crumb" },
-      },
-    },
-    {
-      id: "p5",
-      name: "Bolo de Chocolate com Brigadeiro",
-      cat: "chocolate",
-      price: 70.0,
-      desc: "Cobertura de brigadeiro cremoso, com escorrimento delicado e brilho intenso. Um clássico que nunca sai de cena.",
-      info: ["Tamanho: 22 cm", "Rendimento: 12 a 15 fatias"],
-      tag: "Clássico",
-      img: "images/bolo-brigadeiro.jpg",
-      // brigadeiro cremoso escorrendo com brilho intenso
-      topping: { color: "#3B2417", color2: "#5C3820", shine: true },
-    },
-    {
       id: "p6",
-      name: "Bolo amanteigado com beijinho",
-      cat: "Especial",
+      name: "Bolo de milho com coco",
+      cat: "classica",
       price: 60.0,
-      desc: "Massa amanteigada tradicional, fofinha e com sabor caseiro, coberta com beijinho cremoso e coco ralado.",
+      desc: "Massa super úmida e tradicional de milho verde, finalizada com uma camada generosa de coco ralado e fios de leite condensado por cima.",
       info: ["Tamanho: 22 cm", "Rendimento: 12 a 15 fatias"],
-      img: "images/bolo-coco-beijinho.jpg",
-      // glacê branquinho escorrendo + coco ralado "nevando"
+      img: "images/bolo-milho-coco.jpg",
+      // fios de leite condensado + coco ralado
       topping: {
         color: "#FBF6EE",
         color2: "#FFFFFF",
         particles: { color: "#FFFFFF", color2: "#F5F0E8", shape: "flake" },
       },
-    },    
+    },
     {
       id: "p7",
-      name: "Cenoura com calda de chocolate tradicional",
-      cat: "classicos",
+      name: "Bolo cenoura cremosa",
+      cat: "especial",
       price: 60.0,
-      desc: "Clássico, caseiro e irresistível: cenoura com ganache ao leite.",
+      desc: "Massa tradicional e fofinha de cenoura com uma cobertura generosa e aveludada de ganache de chocolate ao leite, finalizada com granulado gourmet por cima.",
       info: ["Tamanho: 22 cm", "Rendimento: 12 a 15 fatias"],
-      img: "images/bolo-de-cenoura-com-ganache.png",
-      // ganache ao leite escorrendo, brilho suave
-            topping: {
+      img: "images/bolo-cenoura-cremosa.jpg",
+      // ganache ao leite aveludada + granulado gourmet
+      topping: {
         color: "#2A1810",
         color2: "#4A2712",
         particles: { color: "#5C3820", color2: "#3B2417", shape: "rect" },
@@ -128,99 +129,28 @@
     },
     {
       id: "p8",
+      name: "Bolo de fubá com goiabada",
+      cat: "classica",
+      price: 60.0,
+      desc: "Massa tradicional e muito macia de fubá, combinada com uma calda artesanal e generosa de goiabada escorrendo por cima.",
+      info: ["Tamanho: 22 cm", "Rendimento: 12 a 15 fatias"],
+      img: "images/bolo-fuba-goiabada.jpg",
+      // calda de goiabada vermelha e brilhante escorrendo
+      topping: { color: "#7A1616", color2: "#B23A2E", shine: true },
+    },
+    {
+      id: "p9",
       name: "Bolo de paçoca cremosa",
-      cat: "classicos",
-      // TODO: preço estimado (baseado em bolos parecidos) — confirme o valor real.
+      cat: "classica",
       price: 65.0,
       desc: "Massa fofinha de paçoca com uma cobertura generosa e cremosa de paçoca, finalizada com paçoca esfarelada por cima.",
       info: ["Tamanho: 22 cm", "Rendimento: 12 a 15 fatias"],
-      img: "images/bolo-pacoca-cremosa.png",
+      img: "images/bolo-pacoca-cremosa.jpg",
       // calda amanteigada escorrendo + farofinha de paçoca caindo
       topping: {
         color: "#D9A441",
         color2: "#E6CFA0",
         particles: { color: "#E6CFA0", color2: "#C9A15A", shape: "crumb" },
-      },
-    },
-    {
-      id: "p9",
-      name: "Bolo de fubá com goiabada",
-      cat: "classicos",
-      // TODO: preço estimado (baseado em bolos parecidos) — confirme o valor real.
-      price: 60.0,
-      desc: "Massa tradicional e muito macia de fubá, combinada com uma calda artesanal e generosa de goiabada escorrendo por cima.",
-      info: ["Tamanho: 22 cm", "Rendimento: 12 a 15 fatias"],
-      img: "images/bolo-fuba-goiabada.png",
-      // calda de goiabada vermelha e brilhante escorrendo
-      topping: { color: "#7A1616", color2: "#B23A2E", shine: true },
-    },
-    {
-      id: "p10",
-      name: "Aipim com Coco",
-      cat: "classicos",
-      // TODO: preço estimado (baseado em bolos parecidos) — confirme o valor real.
-      price: 60.0,
-      desc: "Bolo de aipim com coco.",
-      info: ["Tamanho: 22 cm", "Rendimento: 12 a 15 fatias"],
-      // TODO: foto ainda não enviada — o card usa o ícone de bolo como substituto
-      // automático até a foto real ser adicionada em images/bolo-aipim-coco.jpg
-      img: "images/bolo-aipim-coco.jpg",
-      // glacê branquinho escorrendo + coco ralado "nevando"
-      topping: {
-        color: "#FBF6EE",
-        color2: "#FFFFFF",
-        particles: { color: "#FFFFFF", color2: "#F5F0E8", shape: "flake" },
-      },
-    },
-    {
-      id: "p11",
-      name: "Bolo de milho com coco",
-      cat: "classicos",
-      // TODO: preço estimado (baseado em bolos parecidos) — confirme o valor real.
-      price: 60.0,
-      desc: "Massa super úmida e tradicional de milho verde, finalizada com uma camada generosa de coco ralado e fios de leite condensado por cima.",
-      info: ["Tamanho: 22 cm", "Rendimento: 12 a 15 fatias"],
-      img: "images/bolo-milho-coco.png",
-      // glacê branquinho escorrendo + coco ralado "nevando"
-      topping: {
-        color: "#FBF6EE",
-        color2: "#FFFFFF",
-        particles: { color: "#FFFFFF", color2: "#F5F0E8", shape: "flake" },
-      },
-    },
-    {
-      id: "p12",
-      name: "Cenoura Tradicional",
-      cat: "classicos",
-      // TODO: preço estimado (baseado em bolos parecidos) — confirme o valor real.
-      price: 60.0,
-      desc: "Massa de cenoura com calda de chocolate.",
-      info: ["Tamanho: 22 cm", "Rendimento: 12 a 15 fatias"],
-      img: "images/bolo-de-cenoura-com-ganache.png",
-      // ganache de chocolate escorrendo, brilho suave
-      topping: {
-        color: "#2A1810",
-        color2: "#4A2712",
-        particles: { color: "#5C3820", color2: "#3B2417", shape: "rect" },
-        shine: true,
-      },
-    },
-    {
-      id: "p13",
-      name: "Bolo ninho cremoso",
-      cat: "Especial",
-      // TODO: preço estimado (baseado em bolos parecidos) — confirme o valor real.
-      // TODO: descrição estimada a partir da foto — confirme o texto real.
-      price: 70.0,
-      desc: "Massa super fofinha combinada com uma cobertura altamente cremosa de Leite Ninho, finalizada com granulado gourmet por cima. ",
-      info: ["Tamanho: 22 cm", "Rendimento: 12 a 15 fatias"],
-      img: "images/bolo-ninho-cremoso.png",
-      // glacê cremoso claro escorrendo + raspas de chocolate escuro caindo
-      topping: {
-        color: "#F3E9D2",
-        color2: "#FFF8E7",
-        particles: { color: "#3B2417", color2: "#2A1810", shape: "rect" },
-        shine: true,
       },
     },
   ];
@@ -420,6 +350,20 @@
   cartOverlay.addEventListener("click", closeCart);
 
   /* ---------------------------------------------------------
+     CARRINHO — data e horário da encomenda
+     Como os bolos são feitos só por encomenda, a data mínima
+     selecionável é sempre o dia seguinte (sem pedido para hoje).
+  --------------------------------------------------------- */
+  const orderDateInput = document.getElementById("orderDate");
+  const orderTimeInput = document.getElementById("orderTime");
+  if (orderDateInput) {
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    const minDate = tomorrow.toISOString().split("T")[0];
+    orderDateInput.min = minDate;
+  }
+
+  /* ---------------------------------------------------------
      CARRINHO — pagamento e entrega
   --------------------------------------------------------- */
   const PAYMENT_LABELS = { pix: "Pix", debito: "Débito", credito: "Crédito" };
@@ -447,6 +391,22 @@
       return;
     }
 
+    const dateVal = orderDateInput ? orderDateInput.value : "";
+    const timeVal = orderTimeInput ? orderTimeInput.value : "";
+    if (!dateVal || !timeVal) {
+      showToast("Escolha a data e o horário da encomenda 🌸");
+      orderDateInput && orderDateInput.classList.toggle("field-error", !dateVal);
+      orderTimeInput && orderTimeInput.classList.toggle("field-error", !timeVal);
+      return;
+    }
+    if (orderDateInput.min && dateVal < orderDateInput.min) {
+      showToast("Nossos bolos são feitos por encomenda — escolha uma data a partir de amanhã 🌸");
+      orderDateInput.classList.add("field-error");
+      return;
+    }
+    orderDateInput.classList.remove("field-error");
+    orderTimeInput.classList.remove("field-error");
+
     const paymentInput = document.querySelector('input[name="payment"]:checked');
     if (!paymentInput) {
       showToast("Escolha a forma de pagamento 🌸");
@@ -458,6 +418,9 @@
       return;
     }
 
+    const [ano, mes, dia] = dateVal.split("-");
+    const dataFormatada = `${dia}/${mes}/${ano}`;
+
     let msg = "Olá, Doçuras do céu! Quero fazer o seguinte pedido:%0A%0A";
     entries.forEach(([id, qty]) => {
       const p = PRODUCTS.find((x) => x.id === id);
@@ -465,6 +428,7 @@
       msg += `• ${qty}x ${p.name} — ${formatPrice(p.price * qty)}%0A`;
     });
     msg += `%0ATotal: ${formatPrice(cartTotal())}%0A`;
+    msg += `%0AData e horário da encomenda: ${dataFormatada} às ${timeVal}`;
     msg += `%0AForma de pagamento: ${PAYMENT_LABELS[paymentInput.value]}`;
     msg += `%0AForma de entrega: ${DELIVERY_LABELS[deliveryInput.value]}`;
     if (deliveryInput.value === "motorista") {
@@ -525,7 +489,7 @@
      VITRINE ANIMADA — troca de bolo com animação
      (substitui o carrossel horizontal simples)
   --------------------------------------------------------- */
-  const CAT_LABELS = { classicos: "Clássicos", chocolate: "Chocolate", especiais: "Especiais" };
+  const CAT_LABELS = { classica: "Clássica", especial: "Especial" };
 
   const sliderStage = document.getElementById("sliderStage");
   const sliderPhoto = document.getElementById("sliderPhoto");
