@@ -2,6 +2,7 @@
    FLOR DE AÇÚCAR — Design tokens
    Paleta: creme + rosa blush + rosé profundo + dourado
 ========================================================= */
+
 :root{
   --cream:      #FFF8F3;
   --blush:      #FBE7ED;
@@ -954,7 +955,9 @@ h3{font-size:1.35rem;}
   .hero-art{ order:-1; }
   .steps{ grid-template-columns: 1fr; }
   .footer-grid{ grid-template-columns: 1fr 1fr; }
+   #orderDate{color:black};
 }
+
 
 @media (max-width: 760px){
   .main-nav{
@@ -968,6 +971,7 @@ h3{font-size:1.35rem;}
     opacity:0;
     transition: transform .3s ease, opacity .3s ease;
     z-index:400;
+   #orderDate{color:black};
   }
   .main-nav.open{ transform: translateY(0); opacity:1; }
   .main-nav a{ padding: 12px 4px; border-bottom:1px solid var(--blush-soft); }
@@ -985,6 +989,7 @@ h3{font-size:1.35rem;}
   .carousel-card{ flex-basis: 220px; }
   .hero-cta{ flex-direction:column; width:100%; }
   .hero-cta .btn{ width:100%; }
+   #orderDate{color:black};
 }
 /* =========================================================
    CADASTRO / CAPTAÇÃO DE LEADS
