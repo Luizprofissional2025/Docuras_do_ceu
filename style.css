@@ -939,6 +939,9 @@ h3{font-size:1.35rem;}
   0%{ transform: translate(0,0) rotate(0deg) scale(1); opacity:1; }
   100%{ transform: var(--fly-transform); opacity:0; }
 }
+.cart-delivery-note{
+   color:red;
+}
 
 /* =========================================================
    RESPONSIVE
