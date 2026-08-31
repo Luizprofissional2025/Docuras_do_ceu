@@ -82,7 +82,7 @@
     },
     {
       id: "p5",
-      name: "Bolo ninho cremoso",
+      name: "Bolo de ninho cremoso",
       cat: "especial",
       price: 70.0,
       desc: "Massa super fofinha combinada com uma cobertura altamente cremosa de Leite Ninho, finalizada com granulado gourmet por cima.",
