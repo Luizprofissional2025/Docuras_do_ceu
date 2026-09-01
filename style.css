@@ -418,11 +418,14 @@ h3{font-size:1.35rem;}
   top:-2px; left:-2px;
   width: calc(100% + 4px);
   height: 58%;
-  transform: translateY(-108%);
+  transform: translateY(-108%); /* estado padrão: sempre escondida acima do bolo */
   filter: drop-shadow(0 6px 5px rgba(0,0,0,.16));
 }
 .slider-photo.in .drip-shape{
   animation: dripDown .95s cubic-bezier(.3,1.2,.4,1) .32s both;
+}
+@media (prefers-reduced-motion: reduce){
+  .slider-photo .drip-shape{ transform: translateY(0); animation:none !important; }
 }
 @keyframes dripDown{
   0%{ transform: translateY(-108%); }
@@ -872,6 +875,7 @@ h3{font-size:1.35rem;}
 
 .cart-datetime-row{ display:flex; gap:8px; }
 .cart-datetime-field{
+  position:relative;
   flex:1;
   display:flex;
   align-items:center;
@@ -887,6 +891,19 @@ h3{font-size:1.35rem;}
 .cart-datetime-field:focus-within{ border-color: var(--rose); background: var(--blush-soft); }
 .cart-datetime-field.field-error{ border-color: var(--rose-deep); }
 .cart-datetime-field svg{ flex-shrink:0; opacity:.8; }
+.dt-mask{
+  position:absolute;
+  left:38px; right:14px; top:0; bottom:0;
+  display:flex; align-items:center;
+  font-family: var(--font-body);
+  font-size:.82rem;
+  letter-spacing:.4px;
+  color: var(--ink-soft);
+  opacity:.55;
+  pointer-events:none;
+  transition: opacity .15s ease;
+}
+.cart-datetime-field.filled .dt-mask{ opacity:0; }
 .cart-date-input,
 .cart-time-input{
   flex:1;
@@ -896,10 +913,14 @@ h3{font-size:1.35rem;}
   padding:0;
   font-family: var(--font-body);
   font-size:.82rem;
-  color: var(--ink);
+  color: transparent; /* o molde cobre o texto nativo até o campo ser preenchido */
 }
+.cart-datetime-field.filled .cart-date-input,
+.cart-datetime-field.filled .cart-time-input{ color: var(--ink); }
 .cart-date-input:focus,
 .cart-time-input:focus{ outline:none; }
+.cart-date-input::-webkit-calendar-picker-indicator,
+.cart-time-input::-webkit-calendar-picker-indicator{ opacity:.55; }
 .cart-delivery-note strong{ color: var(--rose-deep); font-weight:600; }
 
 .cart-total-row{
