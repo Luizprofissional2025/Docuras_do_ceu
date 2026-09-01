@@ -365,6 +365,19 @@
     orderDateInput.min = minDate;
   }
 
+  // Esconde o molde "00/00/0000" / "00:00" assim que o campo tiver valor
+  function setupDatetimeMask(input) {
+    if (!input) return;
+    const field = input.closest(".cart-datetime-field");
+    if (!field) return;
+    const sync = () => field.classList.toggle("filled", !!input.value);
+    input.addEventListener("input", sync);
+    input.addEventListener("change", sync);
+    sync();
+  }
+  setupDatetimeMask(orderDateInput);
+  setupDatetimeMask(orderTimeInput);
+
   /* ---------------------------------------------------------
      CARRINHO — pagamento e entrega
   --------------------------------------------------------- */
