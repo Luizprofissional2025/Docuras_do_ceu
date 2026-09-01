@@ -399,9 +399,9 @@ h3{font-size:1.35rem;}
 }
 
 /* ---------------------------------------------------------
-   COBERTURA ANIMADA — cada bolo "ganha" sua calda ao entrar:
-   morango escorre rosa, chocolate escorre escuro e brilhante,
-   paçoca escorre e "chove" farofa, coco "neva" flocos brancos...
+   BRILHO + PARTÍCULAS — reflexo passando por cima do bolo e
+   granulado/coco/farofa "caindo", diferente para cada bolo.
+   (sem calda/drip — só o efeito de luz e as partículas)
 --------------------------------------------------------- */
 .slider-topping{
   position:absolute; inset:0;
@@ -411,29 +411,7 @@ h3{font-size:1.35rem;}
   z-index:2;
 }
 
-/* a calda: um "sobe e desce" de SVG com borda irregular, escondida
-   acima do bolo e que escorre pra baixo quando a foto entra */
-.drip-shape{
-  position:absolute;
-  top:-2px; left:-2px;
-  width: calc(100% + 4px);
-  height: 58%;
-  transform: translateY(-108%); /* estado padrão: sempre escondida acima do bolo */
-  filter: drop-shadow(0 6px 5px rgba(0,0,0,.16));
-}
-.slider-photo.in .drip-shape{
-  animation: dripDown .95s cubic-bezier(.3,1.2,.4,1) .32s both;
-}
-@media (prefers-reduced-motion: reduce){
-  .slider-photo .drip-shape{ transform: translateY(0); animation:none !important; }
-}
-@keyframes dripDown{
-  0%{ transform: translateY(-108%); }
-  60%{ transform: translateY(6%); }
-  100%{ transform: translateY(0); }
-}
-
-/* brilho: um reflexo que passa por cima da calda (ganache/brigadeiro) */
+/* brilho: um reflexo que passa por cima do bolo */
 .topping-shine-sweep{
   position:absolute;
   top:0; left:-60%;
@@ -443,7 +421,7 @@ h3{font-size:1.35rem;}
   mix-blend-mode: soft-light;
 }
 .slider-photo.in .topping-shine .topping-shine-sweep{
-  animation: shineSweep 1.25s ease 1.05s both;
+  animation: shineSweep 1.25s ease .32s both;
 }
 @keyframes shineSweep{
   0%{ left:-60%; opacity:0; }
