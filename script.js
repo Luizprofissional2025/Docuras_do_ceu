@@ -31,12 +31,8 @@
       desc: "Massa amanteigada tradicional, fofinha e com sabor caseiro, coberta com beijinho cremoso e coco ralado.",
       info: ["Tamanho: 22 cm", "Rendimento: 12 a 15 fatias"],
       img: "images/bolo-amanteigado-beijinho.jpg",
-      // beijinho cremoso escorrendo + coco ralado "nevando"
-      topping: {
-        color: "#FBF6EE",
-        color2: "#FFFFFF",
-        particles: { color: "#FFFFFF", color2: "#F5F0E8", shape: "flake" },
-      },
+      // coco ralado "nevando"
+      topping: { particles: { color: "#FFFFFF", color2: "#F5F0E8", shape: "flake" } },
     },
     {
       id: "p2",
@@ -46,8 +42,8 @@
       desc: "Massa tradicional e fofinha de cenoura com uma cobertura generosa e brilhante de calda de chocolate.",
       info: ["Tamanho: 22 cm", "Rendimento: 12 a 15 fatias"],
       img: "images/bolo-cenoura-tradicional.jpg",
-      // calda de chocolate brilhante escorrendo
-      topping: { color: "#3B2417", color2: "#5C3820", shine: true },
+      // calda brilhante
+      topping: { shine: true },
     },
     {
       id: "p3",
@@ -57,12 +53,10 @@
       desc: "Massa de chocolate fofinha com uma cobertura generosa de brigadeiro tradicional e granulado gourmet por cima.",
       info: ["Tamanho: 22 cm", "Rendimento: 12 a 15 fatias"],
       img: "images/bolo-chocolate-brigadeiro.jpg",
-      // brigadeiro escorrendo + granulado gourmet caindo
+      // brigadeiro brilhante + granulado gourmet caindo
       topping: {
-        color: "#3B2417",
-        color2: "#5C3820",
-        particles: { color: "#2A1810", color2: "#4A2712", shape: "rect" },
         shine: true,
+        particles: { color: "#2A1810", color2: "#4A2712", shape: "rect" },
       },
     },
     {
@@ -73,12 +67,8 @@
       desc: "Massa fofinha de baunilha com uma cobertura generosa e cremosa de brigadeiro de morango, finalizada com granulado gourmet por cima.",
       info: ["Tamanho: 22 cm", "Rendimento: 12 a 15 fatias"],
       img: "images/bolo-baunilha-morango.jpg",
-      // calda de morango escorrendo + granulado de chocolate caindo
-      topping: {
-        color: "#F1AFC4",
-        color2: "#FBE1E9",
-        particles: { color: "#4A2E22", color2: "#6B3A28", shape: "rect" },
-      },
+      // granulado de chocolate caindo
+      topping: { particles: { color: "#4A2E22", color2: "#6B3A28", shape: "rect" } },
     },
     {
       id: "p5",
@@ -88,12 +78,10 @@
       desc: "Massa super fofinha combinada com uma cobertura altamente cremosa de Leite Ninho, finalizada com granulado gourmet por cima.",
       info: ["Tamanho: 22 cm", "Rendimento: 12 a 15 fatias"],
       img: "images/bolo-ninho-cremoso.jpg",
-      // glacê cremoso claro escorrendo + raspas de chocolate escuro caindo
+      // brilho cremoso + raspas de chocolate escuro caindo
       topping: {
-        color: "#F3E9D2",
-        color2: "#FFF8E7",
-        particles: { color: "#3B2417", color2: "#2A1810", shape: "rect" },
         shine: true,
+        particles: { color: "#3B2417", color2: "#2A1810", shape: "rect" },
       },
     },
     {
@@ -104,12 +92,8 @@
       desc: "Massa super úmida e tradicional de milho verde, finalizada com uma camada generosa de coco ralado e fios de leite condensado por cima.",
       info: ["Tamanho: 22 cm", "Rendimento: 12 a 15 fatias"],
       img: "images/bolo-milho-coco.jpg",
-      // fios de leite condensado + coco ralado
-      topping: {
-        color: "#FBF6EE",
-        color2: "#FFFFFF",
-        particles: { color: "#FFFFFF", color2: "#F5F0E8", shape: "flake" },
-      },
+      // coco ralado "nevando"
+      topping: { particles: { color: "#FFFFFF", color2: "#F5F0E8", shape: "flake" } },
     },
     {
       id: "p7",
@@ -119,12 +103,10 @@
       desc: "Massa tradicional e fofinha de cenoura com uma cobertura generosa e aveludada de ganache de chocolate ao leite, finalizada com granulado gourmet por cima.",
       info: ["Tamanho: 22 cm", "Rendimento: 12 a 15 fatias"],
       img: "images/bolo-cenoura-cremosa.jpg",
-      // ganache ao leite aveludada + granulado gourmet
+      // ganache aveludada brilhante + granulado gourmet caindo
       topping: {
-        color: "#2A1810",
-        color2: "#4A2712",
-        particles: { color: "#5C3820", color2: "#3B2417", shape: "rect" },
         shine: true,
+        particles: { color: "#5C3820", color2: "#3B2417", shape: "rect" },
       },
     },
     {
@@ -135,8 +117,8 @@
       desc: "Massa tradicional e muito macia de fubá, combinada com uma calda artesanal e generosa de goiabada escorrendo por cima.",
       info: ["Tamanho: 22 cm", "Rendimento: 12 a 15 fatias"],
       img: "images/bolo-fuba-goiabada.jpg",
-      // calda de goiabada vermelha e brilhante escorrendo
-      topping: { color: "#7A1616", color2: "#B23A2E", shine: true },
+      // calda de goiabada brilhante
+      topping: { shine: true },
     },
     {
       id: "p9",
@@ -146,12 +128,8 @@
       desc: "Massa fofinha de paçoca com uma cobertura generosa e cremosa de paçoca, finalizada com paçoca esfarelada por cima.",
       info: ["Tamanho: 22 cm", "Rendimento: 12 a 15 fatias"],
       img: "images/bolo-pacoca-cremosa.jpg",
-      // calda amanteigada escorrendo + farofinha de paçoca caindo
-      topping: {
-        color: "#D9A441",
-        color2: "#E6CFA0",
-        particles: { color: "#E6CFA0", color2: "#C9A15A", shape: "crumb" },
-      },
+      // farofinha de paçoca caindo
+      topping: { particles: { color: "#E6CFA0", color2: "#C9A15A", shape: "crumb" } },
     },
   ];
 
@@ -182,28 +160,15 @@
   }
 
   /* ---------------------------------------------------------
-     COBERTURA ANIMADA — calda escorrendo + granulado/coco/farofa
-     caindo, diferente para cada bolo (p.topping), usada na vitrine.
+     BRILHO + PARTÍCULAS — reflexo passando por cima do bolo e
+     granulado/coco/farofa "caindo", diferente para cada bolo
+     (p.topping), usado na vitrine. Sem a calda/drip.
   --------------------------------------------------------- */
   function toppingMarkup(p) {
     const t = p.topping;
     if (!t) return "";
-    const gradId = "dripGrad-" + p.id;
     return `
       <div class="slider-topping${t.shine ? " topping-shine" : ""}">
-        <svg class="drip-shape" viewBox="0 0 200 90" preserveAspectRatio="none">
-          <defs>
-            <linearGradient id="${gradId}" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="${t.color2 || t.color}"/>
-              <stop offset="100%" stop-color="${t.color}"/>
-            </linearGradient>
-          </defs>
-          <path d="M0,0 H200 V26 C195,52 189,16 183,42 C177,18 171,50 165,24
-            C159,50 153,20 147,44 C141,20 135,52 129,26 C123,50 117,18 111,44
-            C105,20 99,52 93,26 C87,50 81,18 75,44 C69,20 63,50 57,26
-            C51,50 45,18 39,44 C33,20 27,52 21,26 C15,50 9,18 3,42 C1,34 0,30 0,26 Z"
-            fill="url(#${gradId})"/>
-        </svg>
         ${t.shine ? '<div class="topping-shine-sweep"></div>' : ""}
         ${t.particles ? `<div class="topping-particles" data-shape="${t.particles.shape}"></div>` : ""}
       </div>
@@ -365,19 +330,6 @@
     orderDateInput.min = minDate;
   }
 
-  // Esconde o molde "00/00/0000" / "00:00" assim que o campo tiver valor
-  function setupDatetimeMask(input) {
-    if (!input) return;
-    const field = input.closest(".cart-datetime-field");
-    if (!field) return;
-    const sync = () => field.classList.toggle("filled", !!input.value);
-    input.addEventListener("input", sync);
-    input.addEventListener("change", sync);
-    sync();
-  }
-  setupDatetimeMask(orderDateInput);
-  setupDatetimeMask(orderTimeInput);
-
   /* ---------------------------------------------------------
      CARRINHO — pagamento e entrega
   --------------------------------------------------------- */
@@ -505,8 +457,17 @@
   /* ---------------------------------------------------------
      VITRINE ANIMADA — troca de bolo com animação
      (substitui o carrossel horizontal simples)
+
+     A vitrine mostra só uma seleção de bolos (não o catálogo
+     inteiro) — o catálogo completo continua na grade abaixo.
   --------------------------------------------------------- */
   const CAT_LABELS = { classica: "Clássica", especial: "Especial" };
+
+  // ids dos bolos que aparecem na vitrine, na ordem desejada
+  const SLIDER_IDS = ["p4", "p5", "p7", "p3"];
+  const SLIDER_PRODUCTS = SLIDER_IDS
+    .map((id) => PRODUCTS.find((p) => p.id === id))
+    .filter(Boolean);
 
   const sliderStage = document.getElementById("sliderStage");
   const sliderPhoto = document.getElementById("sliderPhoto");
@@ -536,8 +497,8 @@
   }
 
   function goToSlide(i, direction) {
-    sliderCurrent = (i + PRODUCTS.length) % PRODUCTS.length;
-    const p = PRODUCTS[sliderCurrent];
+    sliderCurrent = (i + SLIDER_PRODUCTS.length) % SLIDER_PRODUCTS.length;
+    const p = SLIDER_PRODUCTS[sliderCurrent];
 
     // troca o tema de cor de fundo por categoria do bolo
     sliderSection.dataset.theme = p.cat;
@@ -549,7 +510,7 @@
 
     setTimeout(() => {
       renderSliderPhoto(p);
-      sliderIndex.textContent = String(sliderCurrent + 1).padStart(2, "0") + " / " + String(PRODUCTS.length).padStart(2, "0");
+      sliderIndex.textContent = String(sliderCurrent + 1).padStart(2, "0") + " / " + String(SLIDER_PRODUCTS.length).padStart(2, "0");
       sliderCat.textContent = CAT_LABELS[p.cat] || p.cat;
       sliderName.textContent = p.name;
       sliderDesc.textContent = p.desc;
@@ -568,7 +529,7 @@
   }
 
   function renderSliderThumbs() {
-    sliderThumbs.innerHTML = PRODUCTS.map((p, i) => `
+    sliderThumbs.innerHTML = SLIDER_PRODUCTS.map((p, i) => `
       <button class="slider-thumb${i === 0 ? " active" : ""}" data-i="${i}" aria-label="${p.name}">
         <img src="${p.img}" alt="" loading="lazy" onerror="this.remove();">
       </button>
@@ -621,15 +582,15 @@
   }
 
   function initSlider() {
-    renderSliderPhoto(PRODUCTS[0]);
+    renderSliderPhoto(SLIDER_PRODUCTS[0]);
     sliderPhoto.classList.add("in");
-    sliderIndex.textContent = "01 / " + String(PRODUCTS.length).padStart(2, "0");
-    sliderCat.textContent = CAT_LABELS[PRODUCTS[0].cat] || PRODUCTS[0].cat;
-    sliderName.textContent = PRODUCTS[0].name;
-    sliderDesc.textContent = PRODUCTS[0].desc;
-    sliderPrice.textContent = formatPrice(PRODUCTS[0].price);
-    sliderAddBtn.dataset.id = PRODUCTS[0].id;
-    sliderSection.dataset.theme = PRODUCTS[0].cat;
+    sliderIndex.textContent = "01 / " + String(SLIDER_PRODUCTS.length).padStart(2, "0");
+    sliderCat.textContent = CAT_LABELS[SLIDER_PRODUCTS[0].cat] || SLIDER_PRODUCTS[0].cat;
+    sliderName.textContent = SLIDER_PRODUCTS[0].name;
+    sliderDesc.textContent = SLIDER_PRODUCTS[0].desc;
+    sliderPrice.textContent = formatPrice(SLIDER_PRODUCTS[0].price);
+    sliderAddBtn.dataset.id = SLIDER_PRODUCTS[0].id;
+    sliderSection.dataset.theme = SLIDER_PRODUCTS[0].cat;
     renderSliderThumbs();
     renderFloatingDecor();
     startSliderAutoplay();
