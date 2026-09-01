@@ -114,6 +114,17 @@
     <symbol id="ico-sprinkle" viewBox="0 0 20 20">
       <rect x="8" y="0" width="4" height="20" rx="2" fill="currentColor"/>
     </symbol>
+    <symbol id="ico-calendar" viewBox="0 0 24 24">
+      <rect x="3.5" y="5" width="17" height="15.5" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <path d="M3.5 9.5h17M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      <circle cx="8.2" cy="13.5" r="1.1" fill="currentColor"/>
+      <circle cx="12" cy="13.5" r="1.1" fill="currentColor"/>
+      <circle cx="15.8" cy="13.5" r="1.1" fill="currentColor"/>
+    </symbol>
+    <symbol id="ico-clock" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <path d="M12 7.3V12l3.2 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
     <symbol id="ico-flourish" viewBox="0 0 200 24">
       <path d="M0 12c20-14 30 14 50 0s30-14 50 0 30 14 50 0 30-14 50 0" fill="none" stroke="currentColor" stroke-width="1.4"/>
       <circle cx="100" cy="12" r="3.5" fill="currentColor"/>
@@ -304,7 +315,6 @@
 <section class="cta-banner">
   <div class="container cta-inner">
     <div>
-      <p class="eyebrow light">Ocasião especial?</p>
       <h2>Vamos criar um bolo só seu</h2>
       <p class="cta-desc">Aniversários, encontros em família ou só uma vontade de doce — conte sua ideia e a gente transforma em bolo.</p>
     </div>
@@ -383,10 +393,18 @@
       <div class="cart-option-group">
         <span class="cart-option-label">Data e horário da encomenda</span>
         <div class="cart-datetime-row">
-          <input type="date" id="orderDate" class="cart-date-input" aria-label="Data da encomenda">
-          <input type="time" id="orderTime" class="cart-time-input" aria-label="Horário da encomenda">
+          <label class="cart-datetime-field" id="dateField">
+            <svg width="16" height="16"><use href="#ico-calendar"/></svg>
+            <span class="dt-mask" aria-hidden="true">00/00/0000</span>
+            <input type="date" id="orderDate" class="cart-date-input" aria-label="Data da encomenda (dd/mm/aaaa)">
+          </label>
+          <label class="cart-datetime-field" id="timeField">
+            <svg width="16" height="16"><use href="#ico-clock"/></svg>
+            <span class="dt-mask" aria-hidden="true">00:00</span>
+            <input type="time" id="orderTime" class="cart-time-input" aria-label="Horário da encomenda (hh:mm)">
+          </label>
         </div>
-        <p class="cart-delivery-note">Nossos bolos são feitos somente por encomenda — escolha a data e o horário desejados para retirada ou entrega.</p>
+        <p class="cart-delivery-note">Nossos bolos são feitos somente por encomenda, com no mínimo <strong>2 dias de antecedência</strong> — escolha uma data a partir de dois dias contados de hoje.</p>
       </div>
 
       <div class="cart-option-group">
