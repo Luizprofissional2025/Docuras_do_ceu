@@ -113,7 +113,7 @@
     },
     {
       id: "p7",
-      name: "Bolo cenoura cremosa",
+      name: "Bolo de cenoura cremosa",
       cat: "especial",
       price: 60.0,
       desc: "Massa tradicional e fofinha de cenoura com uma cobertura generosa e aveludada de ganache de chocolate ao leite, finalizada com granulado gourmet por cima.",
