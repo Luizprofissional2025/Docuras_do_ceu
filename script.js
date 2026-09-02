@@ -131,6 +131,7 @@
       // farofinha de paçoca caindo
       topping: { particles: { color: "#E6CFA0", color2: "#C9A15A", shape: "crumb" } },
     },
+     {
       id: "p10",
       name: "Bolo de chocolate intenso",
       cat: "especial",
@@ -141,6 +142,7 @@
       // farofinha de paçoca caindo
       topping: { particles: { color: "#E6CFA0", color2: "#C9A15A", shape: "crumb" } },
     },
+     {
       id: "p11",
       name: "Bolo de aipim com coco",
       cat: "classica",
