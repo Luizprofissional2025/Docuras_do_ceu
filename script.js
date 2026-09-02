@@ -838,6 +838,26 @@
     });
   }
 
+  /* ---------------------------------------------------------
+     MÁSCARA DE CELULAR — formata (00) 00000-0000 enquanto digita
+  --------------------------------------------------------- */
+  function maskCelular(value) {
+    const digits = value.replace(/\D/g, "").slice(0, 11);
+    if (digits.length <= 2) return digits.replace(/^(\d*)/, "($1");
+    if (digits.length <= 7) return digits.replace(/^(\d{2})(\d*)/, "($1) $2");
+    return digits.replace(/^(\d{2})(\d{5})(\d*)/, "($1) $2-$3");
+  }
+  function setupCelularMask(input) {
+    if (!input) return;
+    input.addEventListener("input", () => {
+      const cursorFromEnd = input.value.length - input.selectionStart;
+      input.value = maskCelular(input.value);
+      const pos = input.value.length - cursorFromEnd;
+      input.setSelectionRange(pos, pos);
+    });
+  }
+  setupCelularMask(document.getElementById("registerCelular"));
+
   function setupRegisterForm() {
     const form = document.getElementById("registerForm");
     if (!form) return;
@@ -845,13 +865,22 @@
       e.preventDefault();
       authLoginError.textContent = "";
       const nome = form.nome.value.trim();
+      const celular = form.celular.value.trim();
       const email = form.email.value.trim();
       const senha = form.senha.value;
+
+      const celularDigits = celular.replace(/\D/g, "");
+      if (celularDigits.length < 10 || celularDigits.length > 11) {
+        authLoginError.textContent = "Digite um celular válido, com DDD. Ex: (21) 98765-4321";
+        form.celular.focus();
+        return;
+      }
+
       try {
         const res = await fetch("/api/register", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ nome, email, senha }),
+          body: JSON.stringify({ nome, celular, email, senha }),
         });
         const data = await res.json();
         if (!res.ok) {
