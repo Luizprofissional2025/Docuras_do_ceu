@@ -131,28 +131,6 @@
       // farofinha de paçoca caindo
       topping: { particles: { color: "#E6CFA0", color2: "#C9A15A", shape: "crumb" } },
     },
-     {
-      id: "p10",
-      name: "Bolo de chocolate intenso",
-      cat: "especial",
-      price: 65.0,
-      desc: "Massa de chocolate fofinha com uma cobertura generosa de ganache meio amargo e granulado gourmet por cima. ",
-      info: ["Tamanho: 22 cm", "Rendimento: 12 a 15 fatias"],
-      img: "images/bolo-de-chocolate-intenso",
-      // farofinha de paçoca caindo
-      topping: { particles: { color: "#E6CFA0", color2: "#C9A15A", shape: "crumb" } },
-    },
-     {
-      id: "p11",
-      name: "Bolo de aipim com coco",
-      cat: "classica",
-      price: 65.0,
-      desc: "Massa tradicional e super úmida de aipim com muito coco e uma camada generosa de coco ralado por cima. ",
-      info: ["Tamanho: 22 cm", "Rendimento: 12 a 15 fatias"],
-      img: "images/bolo-de-aipim-com-coco.png",
-      // farofinha de paçoca caindo
-      topping: { particles: { color: "#E6CFA0", color2: "#C9A15A", shape: "crumb" } },
-    },
   ];
 
   const TESTIMONIALS = [
