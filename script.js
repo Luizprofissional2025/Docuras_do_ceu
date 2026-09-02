@@ -41,7 +41,7 @@
       price: 60.0,
       desc: "Massa tradicional e fofinha de cenoura com uma cobertura generosa e brilhante de calda de chocolate.",
       info: ["Tamanho: 22 cm", "Rendimento: 12 a 15 fatias"],
-      img: "images/bolo-cenoura-tradicional.jpg",
+      img: "images/bolo-de-cenoura-tradicional.png",
       // calda brilhante
       topping: { shine: true },
     },
@@ -52,7 +52,7 @@
       price: 70.0,
       desc: "Massa de chocolate fofinha com uma cobertura generosa de brigadeiro tradicional e granulado gourmet por cima.",
       info: ["Tamanho: 22 cm", "Rendimento: 12 a 15 fatias"],
-      img: "images/bolo-chocolate-brigadeiro.jpg",
+      img: "images/bolo-de-chocolate-com-brigadeiro.png",
       // brigadeiro brilhante + granulado gourmet caindo
       topping: {
         shine: true,
@@ -133,10 +133,10 @@
     },
      {
       id: "p10",
-      name: "Bolo de paçoca cremosa",
-      cat: "classica",
+      name: "Bolo de chocolate intenso",
+      cat: "especial",
       price: 65.0,
-      desc: "Massa fofinha de paçoca com uma cobertura generosa e cremosa de paçoca, finalizada com paçoca esfarelada por cima.",
+      desc: "Massa de chocolate fofinha com uma cobertura generosa de ganache meio amargo e granulado gourmet por cima.",
       info: ["Tamanho: 22 cm", "Rendimento: 12 a 15 fatias"],
       img: "images/bolo-de-chocolate-intenso.png",
       // farofinha de paçoca caindo
@@ -144,10 +144,10 @@
     },
      {
       id: "p11",
-      name: "Bolo de paçoca cremosa",
+      name: "Bolo de aipim com coco",
       cat: "classica",
       price: 65.0,
-      desc: "Massa fofinha de paçoca com uma cobertura generosa e cremosa de paçoca, finalizada com paçoca esfarelada por cima.",
+      desc: "Massa tradicional e super úmida de aipim com muito coco e uma camada generosa de coco ralado por cima.",
       info: ["Tamanho: 22 cm", "Rendimento: 12 a 15 fatias"],
       img: "images/bolo-de-aipim-com-coco.png",
       // farofinha de paçoca caindo
