@@ -1,4 +1,4 @@
-import { Analytics } from "@vercel/analytics/next"
+
 /* =========================================================
    DOÇURAS DO CÉU — script.js
    Bolos e doces caseiros | Brás de Pina - RJ
