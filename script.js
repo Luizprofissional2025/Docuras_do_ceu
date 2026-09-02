@@ -41,7 +41,7 @@
       price: 60.0,
       desc: "Massa tradicional e fofinha de cenoura com uma cobertura generosa e brilhante de calda de chocolate.",
       info: ["Tamanho: 22 cm", "Rendimento: 12 a 15 fatias"],
-      img: "images/bolo-cenoura-tradicional.jpg",
+      img: "images/bolo-de-cenoura-tradicional.png",
       // calda brilhante
       topping: { shine: true },
     },
@@ -52,7 +52,7 @@
       price: 70.0,
       desc: "Massa de chocolate fofinha com uma cobertura generosa de brigadeiro tradicional e granulado gourmet por cima.",
       info: ["Tamanho: 22 cm", "Rendimento: 12 a 15 fatias"],
-      img: "images/bolo-chocolate-brigadeiro.jpg",
+      img: "images/bolo-de-chocolate-com-brigadeiro.png",
       // brigadeiro brilhante + granulado gourmet caindo
       topping: {
         shine: true,
