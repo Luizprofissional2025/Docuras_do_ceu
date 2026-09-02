@@ -131,6 +131,28 @@
       // farofinha de paçoca caindo
       topping: { particles: { color: "#E6CFA0", color2: "#C9A15A", shape: "crumb" } },
     },
+     {
+      id: "p10",
+      name: "Bolo de paçoca cremosa",
+      cat: "classica",
+      price: 65.0,
+      desc: "Massa fofinha de paçoca com uma cobertura generosa e cremosa de paçoca, finalizada com paçoca esfarelada por cima.",
+      info: ["Tamanho: 22 cm", "Rendimento: 12 a 15 fatias"],
+      img: "images/bolo-de-chocolate-intenso.png",
+      // farofinha de paçoca caindo
+      topping: { particles: { color: "#E6CFA0", color2: "#C9A15A", shape: "crumb" } },
+    },
+     {
+      id: "p11",
+      name: "Bolo de paçoca cremosa",
+      cat: "classica",
+      price: 65.0,
+      desc: "Massa fofinha de paçoca com uma cobertura generosa e cremosa de paçoca, finalizada com paçoca esfarelada por cima.",
+      info: ["Tamanho: 22 cm", "Rendimento: 12 a 15 fatias"],
+      img: "images/bolo-de-aipim-com-coco.png",
+      // farofinha de paçoca caindo
+      topping: { particles: { color: "#E6CFA0", color2: "#C9A15A", shape: "crumb" } },
+    },
   ];
 
   const TESTIMONIALS = [
