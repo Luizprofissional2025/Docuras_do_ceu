@@ -150,7 +150,7 @@
       img: "images/bolo-de-aipim-com-coco.png",
       // farofinha de paçoca caindo
       topping: { particles: { color: "#E6CFA0", color2: "#C9A15A", shape: "crumb" } },
-    }
+    },
   ];
 
   const TESTIMONIALS = [
